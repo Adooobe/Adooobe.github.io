@@ -101,9 +101,9 @@ theme: apollo
 ## Docs: https://hexo.io/docs/one-command-deployment
 deploy:
   type: git
-  repo: https://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@github.com/Adooobe/Adooobe.github.io.git
+  repo: https://{{github.token}}@github.com/Adooobe/Adooobe.github.io.git
   branch: gh_pages
-  token: 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
+  token: {{github.token}}
 
 archive_generator:
     per_page: 0
