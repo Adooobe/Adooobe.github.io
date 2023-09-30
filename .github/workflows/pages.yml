@@ -1,5 +1,4 @@
-.github/workflows/pages.yml
-name: Pages
+name: 'build hexo'
 
 on:
   push:
