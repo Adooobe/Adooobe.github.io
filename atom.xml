@@ -6,7 +6,7 @@
   <link href="https://adooobe.github.io/atom.xml" rel="self"/>
   
   <link href="https://adooobe.github.io/"/>
-  <updated>2023-10-02T11:24:31.988Z</updated>
+  <updated>2023-10-04T03:08:58.823Z</updated>
   <id>https://adooobe.github.io/</id>
   
   <author>
@@ -21,9 +21,9 @@
     <link href="https://adooobe.github.io/2023/10/02/lsm-tree/"/>
     <id>https://adooobe.github.io/2023/10/02/lsm-tree/</id>
     <published>2023-10-02T11:24:02.000Z</published>
-    <updated>2023-10-02T11:24:31.988Z</updated>
+    <updated>2023-10-04T03:08:58.823Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="LSM-Tree"><a href="#LSM-Tree" class="headerlink" title="LSM Tree"></a>LSM Tree</h1><h2 id="Feature"><a href="#Feature" class="headerlink" title="Feature"></a>Feature</h2><h2 id="Structure"><a href="#Structure" class="headerlink" title="Structure"></a>Structure</h2><h2 id="Workflow"><a href="#Workflow" class="headerlink" title="Workflow"></a>Workflow</h2><h2 id="Improvement"><a href="#Improvement" class="headerlink" title="Improvement"></a>Improvement</h2>]]></content>
+    <content type="html"><![CDATA[<h1 id="LSM-Tree"><a href="#LSM-Tree" class="headerlink" title="LSM Tree"></a>LSM Tree</h1><h2 id="Feature"><a href="#Feature" class="headerlink" title="Feature"></a>Feature</h2><ul><li>Ordered</li><li>Block Storage(Disk)-oriented</li><li>Hierarchical</li></ul><h2 id="Structure"><a href="#Structure" class="headerlink" title="Structure"></a>Structure</h2><p><img src="lsm_tree.png#pic_center" alt="LSM-Tree Structure">LSM-Tree Structure</p><h2 id="Workflow"><a href="#Workflow" class="headerlink" title="Workflow"></a>Workflow</h2><ul><li><strong><strong>Sorted String Table (SSTables)</strong></strong></li><li><strong><strong>Memtable</strong></strong></li><li><strong>Compaction</strong></li></ul><h2 id="Improvement"><a href="#Improvement" class="headerlink" title="Improvement"></a>Improvement</h2><ul><li><strong>bLSM</strong></li><li><strong>Diff-Index LSM</strong></li></ul>]]></content>
     
     
       
