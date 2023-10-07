@@ -13,12 +13,12 @@
 <li><strong>Sparse Index</strong></li>
 </ul>
 <p>As mentioned above, SStable has several segments that data are orderly stored. Without any optimization, we can also use binary search algorithm to find a certain element by scanning all the SStables and every Segments in each SStable unitl finding it. But unfortunately, for binary search algorithm, the minimum memory unit is segment for us to find the key in <em>O(logn)</em> or spent a Disk IO, both are too expensive in big data scenarios. So it is neccessary to  build a sparse index in memory to accelerate query efficiency.</p>
-<p><img src="source/_posts/lsm-tree/sparse_index.png" alt="sparse index"></p>
+<p><img src="sparse_index.png#pic_center" alt="sparse index"></p>
 <blockquote>
 <p>Sparse indexes only contain entries for documents that have the indexed field, even if the index field contains a null value. The index skips over any document that is missing the indexed field. The index is “sparse” because it does not include all documents of a collection.</p>
 </blockquote>
 <ul>
-<li><strong>Bloom Filter</strong>(优化读)</li>
+<li><strong>Bloom Filter</strong></li>
 </ul>
 <p>When the number of SStable increases in Disk, if some key is not present in the records, we need to scan all the SStable to find that key. Bloom filter is to overcome this issue. Unlike sparse indexes, <a href="https://adooobe.github.io/2023/10/02/bloom/">Bloom filters</a> are designed to address the performance issues that arise when querying for non-existent keys.</p>
 <h4 id="Compaction"><a href="#Compaction" class="headerlink" title="Compaction"></a>Compaction</h4><h2 id="Improvement"><a href="#Improvement" class="headerlink" title="Improvement"></a>Improvement</h2><ul>
