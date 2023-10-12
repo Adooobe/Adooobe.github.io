@@ -109,7 +109,6 @@ In my opinion, in LSM Tree, a single logically ordered and no-repeat structure c
 * tiered compaction(low write amplification)
   ![size_tiered_compaction](size_tiered_compaction.png#pic_center)
   * high read and space amplification
-  *
 * leveled compaction
 
 Like the picture above, leveled merge policies will merge SSTables into next level with the same range.

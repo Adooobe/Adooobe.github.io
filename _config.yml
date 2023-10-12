@@ -102,7 +102,7 @@ theme: apollo
 deploy:
   type: git
   repo: https://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@github.com/Adooobe/Adooobe.github.io.git
-  branch: gh-pages
+  branch: gh_pages
   token: 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
 
 archive_generator:
