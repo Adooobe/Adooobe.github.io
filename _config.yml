@@ -3,17 +3,15 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: Hexo
+title: Finch's Blog
 subtitle: ''
 description: ''
-keywords:
-author: John Doe
+keywords: Bigdata
+author: Finchxia
 language: en
-timezone: ''
+timezone: 'Asia/Shanghai'
 
-# URL
-## Set your site url here. For example, if you use GitHub Page, set url as 'https://username.github.io/project'
-url: Adooobe.github.io
+url: https://Adooobe.github.io/Adooobe.github.io
 permalink: :year/:month/:day/:title/
 permalink_defaults:
 pretty_urls:
@@ -104,7 +102,7 @@ theme: apollo
 deploy:
   type: git
   repo: https://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@github.com/Adooobe/Adooobe.github.io.git
-  branch: main
+  branch: gh-pages
   token: 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
 
 archive_generator:
