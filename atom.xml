@@ -3,11 +3,11 @@
   <title>Finch&#39;s Blog</title>
   
   
-  <link href="https://adooobe.github.io/Adooobe.github.io/atom.xml" rel="self"/>
+  <link href="https://adooobe/Adooobe.github.io/atom.xml" rel="self"/>
   
-  <link href="https://adooobe.github.io/Adooobe.github.io/"/>
+  <link href="https://adooobe/Adooobe.github.io/"/>
   <updated>2023-10-08T12:18:15.466Z</updated>
-  <id>https://adooobe.github.io/Adooobe.github.io/</id>
+  <id>https://adooobe/Adooobe.github.io/</id>
   
   <author>
     <name>Finchxia</name>
@@ -18,8 +18,8 @@
   
   <entry>
     <title>Apache Arrow For the first time</title>
-    <link href="https://adooobe.github.io/Adooobe.github.io/2023/10/08/apache-arrow/"/>
-    <id>https://adooobe.github.io/Adooobe.github.io/2023/10/08/apache-arrow/</id>
+    <link href="https://adooobe/Adooobe.github.io/2023/10/08/apache-arrow/"/>
+    <id>https://adooobe/Adooobe.github.io/2023/10/08/apache-arrow/</id>
     <published>2023-10-08T12:17:14.000Z</published>
     <updated>2023-10-08T12:18:15.466Z</updated>
     
@@ -31,8 +31,8 @@
   
   <entry>
     <title>the principle and application of LSM Tree</title>
-    <link href="https://adooobe.github.io/Adooobe.github.io/2023/10/02/lsm-tree/"/>
-    <id>https://adooobe.github.io/Adooobe.github.io/2023/10/02/lsm-tree/</id>
+    <link href="https://adooobe/Adooobe.github.io/2023/10/02/lsm-tree/"/>
+    <id>https://adooobe/Adooobe.github.io/2023/10/02/lsm-tree/</id>
     <published>2023-10-02T11:24:02.000Z</published>
     <updated>2023-10-12T05:54:57.972Z</updated>
     
@@ -47,14 +47,14 @@
     
     
     
-    <category term="LSM Storage" scheme="https://adooobe.github.io/Adooobe.github.io/tags/LSM-Storage/"/>
+    <category term="LSM Storage" scheme="https://adooobe/Adooobe.github.io/tags/LSM-Storage/"/>
     
   </entry>
   
   <entry>
     <title>Bloom Filter Implementation and Optimization</title>
-    <link href="https://adooobe.github.io/Adooobe.github.io/2023/10/02/bloom/"/>
-    <id>https://adooobe.github.io/Adooobe.github.io/2023/10/02/bloom/</id>
+    <link href="https://adooobe/Adooobe.github.io/2023/10/02/bloom/"/>
+    <id>https://adooobe/Adooobe.github.io/2023/10/02/bloom/</id>
     <published>2023-10-02T11:11:52.000Z</published>
     <updated>2023-10-03T08:44:27.406Z</updated>
     
@@ -69,7 +69,7 @@
     
     
     
-    <category term="Bloom-Filter" scheme="https://adooobe.github.io/Adooobe.github.io/tags/Bloom-Filter/"/>
+    <category term="Bloom-Filter" scheme="https://adooobe/Adooobe.github.io/tags/Bloom-Filter/"/>
     
   </entry>
   

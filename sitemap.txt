@@ -1,6 +1,6 @@
-https://adooobe.github.io/Adooobe.github.io/2023/10/02/lsm-tree/
-https://adooobe.github.io/Adooobe.github.io/2023/10/08/apache-arrow/
-https://adooobe.github.io/Adooobe.github.io/2023/10/02/bloom/
-https://adooobe.github.io/Adooobe.github.io
-https://adooobe.github.io/Adooobe.github.io/tags/Bloom-Filter/
-https://adooobe.github.io/Adooobe.github.io/tags/LSM-Storage/
+https://adooobe/Adooobe.github.io/2023/10/02/lsm-tree/
+https://adooobe/Adooobe.github.io/2023/10/08/apache-arrow/
+https://adooobe/Adooobe.github.io/2023/10/02/bloom/
+https://adooobe/Adooobe.github.io
+https://adooobe/Adooobe.github.io/tags/LSM-Storage/
+https://adooobe/Adooobe.github.io/tags/Bloom-Filter/
