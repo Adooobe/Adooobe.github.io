@@ -10,7 +10,7 @@
 
 <h3 id="Memtable"><a href="#Memtable" class="headerlink" title="Memtable"></a>Memtable</h3><p>Memtable is an append-only data structure (every node inserted cannot be changed by logical delete and removing duplicates based on update time.) like Binary search tree (e.g. RedBlack tree - LevelDB) or SkipList (e.g. HBase, more popular).</p>
 <h3 id="Sorted-String-Table-SSTables"><a href="#Sorted-String-Table-SSTables" class="headerlink" title="Sorted String Table (SSTables)"></a>Sorted String Table (SSTables)</h3><p>Usually, a SSTable consists of an index block and multiple data blocks. Data block structure is as follows:</p>
-<p><img src="/sstable.png#pic_center" alt="Sorted Strings Table"></p>
+<p><img src="/./lsm-tree/sstable.png#pic_center" alt="Sorted Strings Table"></p>
 <p>where data is only ordered in segment layer rather than global.</p>
 <h3 id="Optimization"><a href="#Optimization" class="headerlink" title="Optimization"></a>Optimization</h3><h4 id="improve-read-performance"><a href="#improve-read-performance" class="headerlink" title="improve read performance"></a>improve read performance</h4><p>For LSM Tree, what we concerned is read performance rather than write. As data increases, some methods to improve read performance need to come into our pictures.</p>
 <ul>
