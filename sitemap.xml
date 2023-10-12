@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://adooobe/Adooobe.github.io/2023/10/02/lsm-tree/</loc>
+    <loc>https://adooobe.github.io/2023/10/02/lsm-tree/</loc>
     
     <lastmod>2023-10-12</lastmod>
     
@@ -11,7 +11,7 @@
   </url>
   
   <url>
-    <loc>https://adooobe/Adooobe.github.io/2023/10/08/apache-arrow/</loc>
+    <loc>https://adooobe.github.io/2023/10/08/apache-arrow/</loc>
     
     <lastmod>2023-10-08</lastmod>
     
@@ -20,7 +20,7 @@
   </url>
   
   <url>
-    <loc>https://adooobe/Adooobe.github.io/2023/10/02/bloom/</loc>
+    <loc>https://adooobe.github.io/2023/10/02/bloom/</loc>
     
     <lastmod>2023-10-03</lastmod>
     
@@ -30,7 +30,7 @@
   
 
   <url>
-    <loc>https://adooobe/Adooobe.github.io</loc>
+    <loc>https://adooobe.github.io/</loc>
     <lastmod>2023-10-12</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
@@ -38,14 +38,14 @@
 
   
   <url>
-    <loc>https://adooobe/Adooobe.github.io/tags/LSM-Storage/</loc>
+    <loc>https://adooobe.github.io/tags/Bloom-Filter/</loc>
     <lastmod>2023-10-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://adooobe/Adooobe.github.io/tags/Bloom-Filter/</loc>
+    <loc>https://adooobe.github.io/tags/LSM-Storage/</loc>
     <lastmod>2023-10-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
