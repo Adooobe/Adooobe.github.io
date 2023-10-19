@@ -25,6 +25,7 @@
 <li><strong>Bloom Filter</strong></li>
 </ul>
 <p>When the number of SStable increases in Disk, if some key is not present in the records, we need to scan all the SStable to find that key. Bloom filter is to overcome this issue. Unlike sparse indexes, <a href="https://adooobe.github.io/2023/10/02/bloom/">Bloom filters</a> are designed to address the performance issues that arise when querying for non-existent keys.</p>
+<p>It is worth noting that Bloom Filters should be updated as compaction operations because compaction will delete some tombstone data so that BF can’t work normally.</p>
 <h3 id="Compaction"><a href="#Compaction" class="headerlink" title="Compaction"></a>Compaction</h3><h4 id="questions-in-query"><a href="#questions-in-query" class="headerlink" title="questions in query"></a>questions in query</h4><p>Let’s talk about query in LSM Tree first. There are two query methods: <em>point lookup query</em> and <em>range query</em>.</p>
 <ul>
 <li><strong>point lookup query</strong>: find the element what we want from new segment to old one.</li>
@@ -46,14 +47,18 @@
 <p>In my opinion, in LSM Tree, a single logically ordered and no-repeat structure can be regarded as a <code>sorted run</code>.</p>
 <h4 id="Methods"><a href="#Methods" class="headerlink" title="Methods"></a>Methods</h4><p><img src="/2023/10/02/lsm-tree/merge_policy.png#pic_center" alt="LSM Tree merge policies"></p>
 <ul>
-<li>tiered compaction(low write amplification)<br><img src="/2023/10/02/lsm-tree/size_tiered_compaction.png#pic_center" alt="size_tiered_compaction"><ul>
+<li>tiered compaction(suitable for reads scenarios)<br><img src="/2023/10/02/lsm-tree/size_tiered_compaction.png#pic_center" alt="size_tiered_compaction"><ul>
 <li>high read and space amplification</li>
-<li></li>
+<li>in each tier, storage unit(memtable&#x2F;sstable in level 0) size won’t be changed unitl it is merged into next-level SSTable. The size of a single SSTable in the next level is the sum of the number of SSTables in the previous level.</li>
 </ul>
 </li>
-<li>leveled compaction</li>
+<li>leveled compaction(suitable for writes scenarios)<ul>
+<li>high write amplification</li>
+<li>As shown in the following figure, each leveled level is an ordered run that consists of multiple sstables. These sstables also maintain an orderly relationship with each other. When the data size of each level reaches the upper limit, this level will merge with the run of the next level. This method combines multiple runs of the level to one, reducing the read amplification and space amplification. Also, the smaller sstables provide fine-grained task splitting and control. This way, controlling the task size is actually controlling the size of the temporary space. In other words, leveled merge policies will merge SSTables into next level with the same range to reduce space and read amplifications.</li>
 </ul>
-<p>Like the picture above, leveled merge policies will merge SSTables into next level with the same range.</p>
+</li>
+</ul>
+<p><img src="/2023/10/02/lsm-tree/leveled_compaction.png#pic_center" alt="leveled compaction"></p>
 <h2 id="Improvement"><a href="#Improvement" class="headerlink" title="Improvement"></a>Improvement</h2><ul>
 <li><strong>bLSM</strong></li>
 <li><strong>Diff-Index LSM</strong></li>
