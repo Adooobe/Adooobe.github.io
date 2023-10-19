@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://adooobe.github.io/2023/10/19/z-order-bak/</loc>
+    <loc>https://adooobe.github.io/2023/10/19/z-order/</loc>
     
     <lastmod>2023-10-19</lastmod>
     
@@ -47,6 +47,13 @@
 
   
   <url>
+    <loc>https://adooobe.github.io/tags/Bloom-Filter/</loc>
+    <lastmod>2023-10-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://adooobe.github.io/tags/bigdata/</loc>
     <lastmod>2023-10-19</lastmod>
     <changefreq>weekly</changefreq>
@@ -54,14 +61,14 @@
   </url>
   
   <url>
-    <loc>https://adooobe.github.io/tags/LSM-Storage/</loc>
+    <loc>https://adooobe.github.io/tags/big-data-index/</loc>
     <lastmod>2023-10-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://adooobe.github.io/tags/Bloom-Filter/</loc>
+    <loc>https://adooobe.github.io/tags/LSM-Storage/</loc>
     <lastmod>2023-10-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
