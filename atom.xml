@@ -18,12 +18,12 @@
   
   <entry>
     <title>z-order</title>
-    <link href="https://adooobe.github.io/2023/10/19/z-order/"/>
-    <id>https://adooobe.github.io/2023/10/19/z-order/</id>
+    <link href="https://adooobe.github.io/2023/10/19/z-order-bak/"/>
+    <id>https://adooobe.github.io/2023/10/19/z-order-bak/</id>
     <published>2023-10-19T05:14:56.000Z</published>
     <updated>2023-10-19T05:18:50.545Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="What-is-Z-order"><a href="#What-is-Z-order" class="headerlink" title="What is Z-order"></a>What is Z-order</h2><p>Z-order is a concept of sorting data. Specifically，to quote Wikipedia, <code>“Z-order maps multidimensional data to one dimension while preserving locality of the data points.”</code> In the field of big data, Columns in table are regarded as dimensions to some extension. In other words, Z-order brings us a better way to organize data.</p><p>There is a simple example to examine why z-order data may be the better one. Think about two different ordered data, Z-order data and Linear-order data.</p><p><img src="/2023/10/19/z-order/10/19/z-order/z-order.png" alt="z-order data"> <img src="/2023/10/19/z-order/10/19/z-order/linear-order.png" alt="linear-order data"></p><h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><ol><li><a href="https://blog.cloudera.com/speeding-up-queries-with-z-order/">https://blog.cloudera.com/speeding-up-queries-with-z-order/</a></li><li><a href="https://izualzhy.cn/lakehouse-zorder">https://izualzhy.cn/lakehouse-zorder</a></li><li><a href="https://juejin.cn/post/7118344872947515428">https://juejin.cn/post/7118344872947515428</a></li></ol>]]></content>
+    <content type="html"><![CDATA[<h2 id="What-is-Z-order"><a href="#What-is-Z-order" class="headerlink" title="What is Z-order"></a>What is Z-order</h2><p>Z-order is a concept of sorting data. Specifically，to quote Wikipedia, <code>“Z-order maps multidimensional data to one dimension while preserving locality of the data points.”</code> In the field of big data, Columns in table are regarded as dimensions to some extension. In other words, Z-order brings us a better way to organize data.</p><p>There is a simple example to examine why z-order data may be the better one. Think about two different ordered data, Z-order data and Linear-order data.</p><p><img src="/2023/10/19/z-order-bak/10/19/z-order-bak/z-order.png" alt="z-order data"> <img src="/2023/10/19/z-order-bak/10/19/z-order-bak/linear-order.png" alt="linear-order data"></p><h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><ol><li><a href="https://blog.cloudera.com/speeding-up-queries-with-z-order/">https://blog.cloudera.com/speeding-up-queries-with-z-order/</a></li><li><a href="https://izualzhy.cn/lakehouse-zorder">https://izualzhy.cn/lakehouse-zorder</a></li><li><a href="https://juejin.cn/post/7118344872947515428">https://juejin.cn/post/7118344872947515428</a></li></ol>]]></content>
     
     
       
