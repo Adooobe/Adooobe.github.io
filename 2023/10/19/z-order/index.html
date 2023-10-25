@@ -1,10 +1,221 @@
 <!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><title> z-order · Finch's Blog</title><meta name="description" content="z-order - Finchxia"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="icon" href="/favicon.png"><link rel="stylesheet" href="/css/apollo.css"><link rel="search" type="application/opensearchdescription+xml" href="https://Adooobe.github.io/atom.xml" title="Finch's Blog"><meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="Finch's Blog" type="application/atom+xml">
-</head><body><div class="wrap"><header><a href="/" class="logo-link"><img src="/favicon.png" alt="logo"></a><ul class="nav nav-list"><li class="nav-list-item"><a href="/" target="_self" class="nav-list-link">BLOG</a></li><li class="nav-list-item"><a href="/archives/" target="_self" class="nav-list-link">ARCHIVE</a></li><li class="nav-list-item"><a href="https://github.com/Adooobe" target="_blank" class="nav-list-link">GITHUB</a></li><li class="nav-list-item"><a href="https://www.xiaohongshu.com/user/profile/578ae95d82ec396a701d61d7?channelType=web_engagement_notification_page&amp;channelTabId=mentions" target="_blank" class="nav-list-link">RED</a></li></ul></header><main class="container"><div class="post"><article class="post-block"><h1 class="post-title">z-order</h1><div class="post-info">Oct 19, 2023</div><div class="post-content"><h2 id="What-is-Z-order"><a href="#What-is-Z-order" class="headerlink" title="What is Z-order"></a>What is Z-order</h2><p>Z-order is a concept of sorting data. Specifically，to quote Wikipedia, <code>“Z-order maps multidimensional data to one dimension while preserving locality of the data points.”</code> In the field of big data, Columns in table are regarded as dimensions to some extension. In other words, Z-order brings us a better way to organize data.</p>
-<p>There is a simple example to examine why z-order data may be the better one. Think about two different ordered data, Z-order data and Linear-order data.</p>
-<p><img src="/2023/10/19/z-order/z-order.png#pic_center" alt="z-order data"> <img src="/2023/10/19/z-order/linear-order.png#pic_center" alt="linear-order data"></p>
+</head><body><div class="wrap"><header><a href="/" class="logo-link"><img src="/favicon.png" alt="logo"></a><ul class="nav nav-list"><li class="nav-list-item"><a href="/" target="_self" class="nav-list-link">BLOG</a></li><li class="nav-list-item"><a href="/archives/" target="_self" class="nav-list-link">ARCHIVE</a></li><li class="nav-list-item"><a href="https://github.com/Adooobe" target="_blank" class="nav-list-link">GITHUB</a></li><li class="nav-list-item"><a href="https://www.xiaohongshu.com/user/profile/578ae95d82ec396a701d61d7?channelType=web_engagement_notification_page&amp;channelTabId=mentions" target="_blank" class="nav-list-link">RED</a></li></ul></header><main class="container"><div class="post"><article class="post-block"><h1 class="post-title">z-order</h1><div class="post-info">Oct 19, 2023</div><div class="post-content"><h2 id="What-is-Z-order-amp-Why-Z-order"><a href="#What-is-Z-order-amp-Why-Z-order" class="headerlink" title="What is Z-order &amp; Why Z-order"></a>What is Z-order &amp; Why Z-order</h2><p>Z-order is a concept of sorting data. Specifically，to quote Wikipedia, <code>“Z-order maps multidimensional data to one dimension while preserving locality of the data points.”</code> In the field of big data, Columns in table are regarded as dimensions to some extension. In other words, Z-order brings us a better way to organize data.</p>
+<p>Firstly, let’s think about two different ordered data, Z-order data and Linear-order data.</p>
+<p><img src="/2023/10/19/z-order/z-order.png#pic_center" alt="z-order data"></p>
+<p><img src="/2023/10/19/z-order/linear-order.png#pic_center" alt="linear-order data"></p>
+<p>It is difficult for us to determine which one performs better immediately so there is a simple example to examine why z-order data may be the better one.</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center">x</th>
+<th style="text-align:center">y</th>
+<th style="text-align:center">z</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">0</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">1</td>
+</tr>
+<tr>
+<td style="text-align:center">0</td>
+<td style="text-align:center">3</td>
+<td style="text-align:center">1</td>
+</tr>
+<tr>
+<td style="text-align:center">1</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">1</td>
+</tr>
+<tr>
+<td style="text-align:center">1</td>
+<td style="text-align:center">2</td>
+<td style="text-align:center">1</td>
+</tr>
+<tr>
+<td style="text-align:center">2</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">1</td>
+</tr>
+<tr>
+<td style="text-align:center">2</td>
+<td style="text-align:center">3</td>
+<td style="text-align:center">1</td>
+</tr>
+<tr>
+<td style="text-align:center">3</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">1</td>
+</tr>
+<tr>
+<td style="text-align:center">3</td>
+<td style="text-align:center">3</td>
+<td style="text-align:center">1</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>data in z-order:</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center">x</th>
+<th style="text-align:center">y</th>
+<th style="text-align:center">z</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">0</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">1</td>
+</tr>
+<tr>
+<td style="text-align:center">1</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">1</td>
+</tr>
+<tr>
+<td style="text-align:center">3</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">1</td>
+</tr>
+<tr>
+<td style="text-align:center">2</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">1</td>
+</tr>
+<tr>
+<td style="text-align:center">1</td>
+<td style="text-align:center">2</td>
+<td style="text-align:center">1</td>
+</tr>
+<tr>
+<td style="text-align:center">0</td>
+<td style="text-align:center">3</td>
+<td style="text-align:center">1</td>
+</tr>
+<tr>
+<td style="text-align:center">2</td>
+<td style="text-align:center">3</td>
+<td style="text-align:center">1</td>
+</tr>
+<tr>
+<td style="text-align:center">3</td>
+<td style="text-align:center">3</td>
+<td style="text-align:center">1</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Now, think about executing a query as follows:</p>
+<ol>
+<li><code>select sum(z) from test where x = 2</code></li>
+<li><code>select sum(z) from test where y = 2</code></li>
+</ol>
+<p>How do we know the query behavior of this SQL? Let’s figure out it in clickhouse.</p>
+<p>default minmax index:</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>granule</th>
+<th>x_min</th>
+<th>x_max</th>
+<th>y_min</th>
+<th>y_max</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>3</td>
+</tr>
+<tr>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+<td>2</td>
+</tr>
+<tr>
+<td>2</td>
+<td>2</td>
+<td>2</td>
+<td>1</td>
+<td>3</td>
+</tr>
+<tr>
+<td>3</td>
+<td>3</td>
+<td>3</td>
+<td>0</td>
+<td>3</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>minmax index with z-order:</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>granule</th>
+<th>x_min</th>
+<th>x_max</th>
+<th>y_min</th>
+<th>y_max</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>1</td>
+<td>2</td>
+<td>3</td>
+<td>0</td>
+<td>1</td>
+</tr>
+<tr>
+<td>2</td>
+<td>0</td>
+<td>1</td>
+<td>2</td>
+<td>3</td>
+</tr>
+<tr>
+<td>3</td>
+<td>2</td>
+<td>3</td>
+<td>3</td>
+<td>3</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>For default minmax index, we filter only one granule when filtering <code>x=2</code> and  4 granules when filtering <code>y=2</code>. For z-order data, the results are<br>2 and 2. It seems that z-order data may be litter better than default one but what if we have more than 3 dimensions filter conditions? Therefore, arranging data according to z-order can help us filter out data does not need to be read, achieving better dataskipping.</p>
+<h2 id="Z-order-in-OLTP-amp-OLAP"><a href="#Z-order-in-OLTP-amp-OLAP" class="headerlink" title="Z-order in OLTP &amp; OLAP"></a>Z-order in OLTP &amp; OLAP</h2><p>In conclusion, Z-order in OLAP can be more popular than OLTP. There are two reasons as follows.</p>
+<p>One is due to the order of physical data that data can only be ordered as one rule in disk. If we put data into disk ordered by primary key, it can’t be ordered by another key. It means we can’t get satisfying performance when filtering some other column as same as filtering sprimary key columns. Another one is we can create serveral B-Tree index in OLTP to replace the capabilities of z-order but OLAP not (because index in memory is too expensive for OLAP).</p>
+<h2 id="Extension-GeoHash-VS-Morton-Code"><a href="#Extension-GeoHash-VS-Morton-Code" class="headerlink" title="Extension: GeoHash VS Morton Code"></a>Extension: GeoHash VS Morton Code</h2><ol>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/35940647">https://zhuanlan.zhihu.com/p/35940647</a></li>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/468542418">https://zhuanlan.zhihu.com/p/468542418</a> (z-order code, but I don’t understand:( )</li>
+</ol>
 <h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><ol>
 <li><a target="_blank" rel="noopener" href="https://blog.cloudera.com/speeding-up-queries-with-z-order/">https://blog.cloudera.com/speeding-up-queries-with-z-order/</a></li>
 <li><a target="_blank" rel="noopener" href="https://izualzhy.cn/lakehouse-zorder">https://izualzhy.cn/lakehouse-zorder</a></li>
 <li><a target="_blank" rel="noopener" href="https://juejin.cn/post/7118344872947515428">https://juejin.cn/post/7118344872947515428</a></li>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/491256487">https://zhuanlan.zhihu.com/p/491256487</a></li>
 </ol>
-</div></article></div></main><footer><div class="paginator"><a href="/2023/10/08/apache-arrow/" class="next">NEXT</a></div><div class="copyright"><p>For yyh, foul-weather and lovely friend</p><p>© 2023 <a href="https://Adooobe.github.io">Finchxia</a>, powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/pinggod/hexo-theme-apollo" target="_blank">hexo-theme-apollo</a>.</p></div></footer></div><script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" integrity="sha384-crwIf/BuaWM9rM65iM+dWFldgQ1Un8jWZMuh3puxb8TOY9+linwLoI7ZHZT+aekW" crossorigin="anonymous"></script></body></html>
+</div></article></div></main><footer><div class="paginator"><a href="/2023/10/23/hudi-cdc/" class="prev">PREV</a><a href="/2023/10/08/apache-arrow/" class="next">NEXT</a></div><div class="copyright"><p>For yyh, foul-weather and lovely friend</p><p>© 2023 <a href="https://Adooobe.github.io">Finchxia</a>, powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/pinggod/hexo-theme-apollo" target="_blank">hexo-theme-apollo</a>.</p></div></footer></div><script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" integrity="sha384-crwIf/BuaWM9rM65iM+dWFldgQ1Un8jWZMuh3puxb8TOY9+linwLoI7ZHZT+aekW" crossorigin="anonymous"></script></body></html>
