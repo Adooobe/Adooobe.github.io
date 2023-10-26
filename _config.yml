@@ -103,7 +103,7 @@ deploy:
   type: git
   repo: https://{{github.token}}@github.com/Adooobe/Adooobe.github.io.git
   branch: gh_pages
-  token: {{github.token}}
+  token: {{github.token2}}
 
 archive_generator:
     per_page: 0
