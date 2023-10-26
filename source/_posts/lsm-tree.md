@@ -5,6 +5,8 @@ tags: LSM Storage
 ---
 # LSM Tree
 
+> LSM-Tree is a kind of storage engine rather than storage format.
+
 ## Feature
 
 * Ordered
@@ -37,7 +39,7 @@ Memtable is an append-only data structure (every node inserted cannot be changed
 
 Usually, a SSTable consists of an index block and multiple data blocks. Data block structure is as follows:
 
-![Sorted Strings Table](sstable.png#pic_center)
+![Sorted Strings Table](./lsm-tree/sstable.png#pic_center)
 
 where data is only ordered in segment layer rather than global.
 
@@ -58,6 +60,8 @@ As mentioned above, SStable has several segments that data are orderly stored. W
 * **Bloom Filter**
 
 When the number of SStable increases in Disk, if some key is not present in the records, we need to scan all the SStable to find that key. Bloom filter is to overcome this issue. Unlike sparse indexes, [Bloom filters](https://adooobe.github.io/2023/10/02/bloom/) are designed to address the performance issues that arise when querying for non-existent keys.
+
+It is worth noting that Bloom Filters should be updated as compaction operations because compaction will delete some tombstone data so that BF can't work normally.
 
 ### Compaction
 
@@ -106,12 +110,15 @@ In my opinion, in LSM Tree, a single logically ordered and no-repeat structure c
 
 ![LSM Tree merge policies](merge_policy.png#pic_center)
 
-* tiered compaction(low write amplification)
+* tiered compaction(suitable for reads scenarios)
   ![size_tiered_compaction](size_tiered_compaction.png#pic_center)
   * high read and space amplification
-* leveled compaction
+  * in each tier, storage unit(memtable/sstable in level 0) size won't be changed unitl it is merged into next-level SSTable. The size of a single SSTable in the next level is the sum of the number of SSTables in the previous level.
+* leveled compaction(suitable for writes scenarios)
+  * high write amplification
+  * As shown in the following figure, each leveled level is an ordered run that consists of multiple sstables. These sstables also maintain an orderly relationship with each other. When the data size of each level reaches the upper limit, this level will merge with the run of the next level. This method combines multiple runs of the level to one, reducing the read amplification and space amplification. Also, the smaller sstables provide fine-grained task splitting and control. This way, controlling the task size is actually controlling the size of the temporary space. In other words, leveled merge policies will merge SSTables into next level with the same range to reduce space and read amplifications.
 
-Like the picture above, leveled merge policies will merge SSTables into next level with the same range.
+![leveled compaction](leveled_compaction.png#pic_center)
 
 ## Improvement
 
@@ -124,5 +131,6 @@ Like the picture above, leveled merge policies will merge SSTables into next lev
 2. https://www.geeksforgeeks.org/introduction-to-log-structured-merge-lsm-tree/
 3. https://www.mongodb.com/docs/manual/core/index-sparse/#:~:text=Sparse%20indexes%20only%20contain%20entries,all%20documents%20of%20a%20collection.
 4. https://hzhu212.github.io/posts/2d7c5edb/
-5. https://zhuanlan.zhihu.com/p/380013595
-6. https://github.com/facebook/rocksdb/wiki/Iterator-Implementation
+5. https://www.alibabacloud.com/blog/an-in-depth-discussion-on-the-lsm-compaction-mechanism_596780
+6. https://zhuanlan.zhihu.com/p/380013595
+7. https://github.com/facebook/rocksdb/wiki/Iterator-Implementation

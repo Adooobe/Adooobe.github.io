@@ -41,7 +41,7 @@ class BloomFilter:
             hash2 = h2(element) % self.m
             if self.data[hash1] == 0 or self.data[hash2] == 0:
                 return "Not in Bloom Filter"
-        prob = (1.0 - ((1.0 - 1.0/self.m) * (self.k*self.n))) * self.k
+        p = (1.0 - ((1.0 - 1.0/self.m) * (self.k*self.n))) * self.k
         return "Might be in Bloom Filter with false positive probability "+str(prob)
 
 def h1(w):
@@ -58,6 +58,16 @@ In this sample, we implement a simple Bloom Filter which has two hash function(c
 When an element inserts into BloomFilter, two positions will be changed to 1 in the bit array computed by hash function so that if the element comes again, BloomFilter will get and check if the two positions are both 1. So when other element comes, if any position is not 1, the element doesn't exist in the data array.
 
 It is worth noting that different elements can get same hash values computed by hash function. It means one grid in the bit array is not independently used by unique element but shared. In other words, it can be covered.
+
+So，in practical applications, how do we determine the number of hash functions to choose? How much space should be allocated for the array? What is the expected number of elements to be stored? How do we control the error? You can refer to the calculation formulas to determine how to design a bloom filter.
+
+n = ceil(m / (-k / log(1 - exp(log(p) / k))))
+
+p = pow(1 - exp(-k / (m / n)), k)
+
+m = ceil((n * log(p)) / log(1 / pow(2, log(2))));
+
+k = round((m / n) * log(2));
 
 ## drawback
 
@@ -80,8 +90,6 @@ $(1-(1-1/m)^{nk})^k$
 In each of these equations, raising the value of k (the number of hash functions) will make the probability of a false positive less likely. However, it is not computationally efficient to have an enormous value for *k*. To minimize this equation, we must choose the best *k*. We do it this way because we assume that the programmer has already chosen an **m** based on their space constraints and that they have some idea what their potential *n* will be. So the *k* value that minimizes that equation is
 
 $k=ln(2)⋅m/n$
-
-## Use Cases
 
 ### Hudi Upsert
 
@@ -116,7 +124,13 @@ For the second question, CBF provides ability to delete elements in Bloom Filter
 
 ![counting bloom filter structure](counting_bloom_filter.png#pic_center)
 
+#### Cuckoo Filter
+
+As the 
+
 ## Reference
 
 1. https://www.waitingforcode.com/big-data-algorithms/scalable-bloom-filter/read
 2. Baquero, C., & Almeida, J. (2007, January). Scalable bloom filters. In European Conference on Principles of Data Mining and Knowledge Discovery (pp. 244-256). Springer, Berlin, Heidelberg.
+3. https://www.xiemingzhao.com/posts/cuckooFilter.html
+4. https://www.cs.cmu.edu/~dga/papers/cuckoo-conext2014.pdf
