@@ -7,19 +7,19 @@
 <li>Block Storage(Disk)-oriented</li>
 <li>Hierarchical</li>
 </ul>
-<h2 id="Structure"><a href="#Structure" class="headerlink" title="Structure"></a>Structure</h2><p><img src="lsm_tree.png#pic_center" alt="LSM-Tree Structure"></p>
+<h2 id="Structure"><a href="#Structure" class="headerlink" title="Structure"></a>Structure</h2><p><img src="/2023/10/02/lsm-tree/lsm_tree.png#pic_center" alt="LSM-Tree Structure"></p>
 <h2 id="Workflow"><a href="#Workflow" class="headerlink" title="Workflow"></a>Workflow</h2><h3 id="WAL"><a href="#WAL" class="headerlink" title="WAL"></a>WAL</h3><p>When LSM Tree received a input(insert/update/delete) operation, to avoid accidental crashing or shutdown，It is neccessary to write ahead log(WAL) that saves operation records into log files.</p>
 <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> Wal <span class="keyword">struct</span> &#123;</span><br><span class="line">	f    *os.File</span><br><span class="line">	path <span class="type">string</span></span><br><span class="line">	lock sync.Locker</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h3 id="Memtable"><a href="#Memtable" class="headerlink" title="Memtable"></a>Memtable</h3><p>Memtable is an append-only data structure (every node inserted cannot be changed by logical delete and removing duplicates based on update time.) like Binary search tree (e.g. RedBlack tree - LevelDB) or SkipList (e.g. HBase, more popular).</p>
 <h3 id="Sorted-String-Table-SSTables"><a href="#Sorted-String-Table-SSTables" class="headerlink" title="Sorted String Table (SSTables)"></a>Sorted String Table (SSTables)</h3><p>Usually, a SSTable consists of an index block and multiple data blocks. Data block structure is as follows:</p>
-<p><img src="./lsm-tree/sstable.png#pic_center" alt="Sorted Strings Table"></p>
+<p><img src="/2023/10/02/lsm-tree/sstable.png#pic_center" alt="Sorted Strings Table"></p>
 <p>where data is only ordered in segment layer rather than global.</p>
 <h3 id="Optimization"><a href="#Optimization" class="headerlink" title="Optimization"></a>Optimization</h3><h4 id="improve-read-performance"><a href="#improve-read-performance" class="headerlink" title="improve read performance"></a>improve read performance</h4><p>For LSM Tree, what we concerned is read performance rather than write. As data increases, some methods to improve read performance need to come into our pictures.</p>
 <ul>
 <li><strong>Sparse Index</strong></li>
 </ul>
 <p>As mentioned above, SStable has several segments that data are orderly stored. Without any optimization, we can also use binary search algorithm to find a certain element by scanning all the SStables and every Segments in each SStable unitl finding it. But unfortunately, for binary search algorithm, the minimum memory unit is segment for us to find the key in <em>O(logn)</em> or spent a Disk IO, both are too expensive in big data scenarios. So it is neccessary to  build a sparse index in memory to accelerate query efficiency.</p>
-<p><img src="sparse_index.png#pic_center" alt="sparse index"></p>
+<p><img src="/2023/10/02/lsm-tree/sparse_index.png#pic_center" alt="sparse index"></p>
 <blockquote>
 <p>Sparse indexes only contain entries for documents that have the indexed field, even if the index field contains a null value. The index skips over any document that is missing the indexed field. The index is “sparse” because it does not include all documents of a collection.</p>
 </blockquote>
@@ -33,7 +33,7 @@
 <li><strong>point lookup query</strong>: find the element what we want from new segment to old one.</li>
 <li><strong>range query</strong>: when a big range query is executed, data have to be found in memtable, immutable memtable and multiple SSTalbes in different levels. (Notice: range query should be <strong>key range query</strong> like the follow picture)</li>
 </ul>
-<p><img src="range_query.png#pic_center" alt="LSM Tree range query"></p>
+<p><img src="/2023/10/02/lsm-tree/range_query.png#pic_center" alt="LSM Tree range query"></p>
 <p>During range reads, the iterator will seek to the start range similar to point lookup (using Binary search with in SSTs) using<code>SeekTo()</code> call. After seeking to start range, there will be series of iterators created one for each memtable, one for each Level-0 files (because of overlapping nature of SSTs in L0) and one for each level later on. A merging iterator will collect keys from each of these iterators and gives the data in sorted order till the End range is reached.</p>
 <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">itr := txn.NewIterator(badger.DefaultIteratorOptions)   </span><br><span class="line"><span class="keyword">for</span> itr.Seek(<span class="string">&quot;startKey&quot;</span>); itr.Valid(); itr.Next() &#123;</span><br><span class="line">    item := itr.Item()</span><br><span class="line">    key := item.Key()</span><br><span class="line">    <span class="keyword">if</span> bytes.Compare(key, <span class="string">&quot;endKey&quot;</span>) &gt; <span class="number">0</span> &#123;</span><br><span class="line">      <span class="keyword">break</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// rest of the logic.</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>Step1. find <em>startkey</em> position (write as startPosition) by <code>seek()</code> and move sub iterator to <code>startPosition + 1</code></p>
@@ -42,13 +42,13 @@
 <p>So in range query, as SSTables become more and more, query execution also becomes heavier and heavier.</p>
 <h4 id="Sorted-Run"><a href="#Sorted-Run" class="headerlink" title="Sorted Run"></a>Sorted Run</h4><blockquote>
 <p>LSM tree organizes files into several sorted runs. A sorted run consists of one or multiple <a target="_blank" rel="noopener" href="https://nightlies.apache.org/flink/flink-table-store-docs-release-0.3/docs/concepts/file-layouts/#data-files">data file</a>s and each data file belongs to exactly one sorted run.</p>
-<p><img src="sorted_runs.png#pic_center" alt="sorted runs"></p>
+<p><img src="/2023/10/02/lsm-tree/sorted_runs.png#pic_center" alt="sorted runs"></p>
 <p>As you can see, different sorted runs may have overlapping primary key ranges, and may even contain the same primary key. When querying the LSM tree, all sorted runs must be combined and all records with the same primary key must be merged according to the user-specified <a target="_blank" rel="noopener" href="https://nightlies.apache.org/flink/flink-table-store-docs-release-0.3/docs/features/table-types/#merge-engines">merge engine</a> and the timestamp of each record.</p>
 </blockquote>
 <p>In my opinion, in LSM Tree, a single logically ordered and no-repeat structure can be regarded as a <code>sorted run</code>.</p>
-<h4 id="Methods"><a href="#Methods" class="headerlink" title="Methods"></a>Methods</h4><p><img src="merge_policy.png#pic_center" alt="LSM Tree merge policies"></p>
+<h4 id="Methods"><a href="#Methods" class="headerlink" title="Methods"></a>Methods</h4><p><img src="/2023/10/02/lsm-tree/merge_policy.png#pic_center" alt="LSM Tree merge policies"></p>
 <ul>
-<li>tiered compaction(suitable for reads scenarios)<br><img src="size_tiered_compaction.png#pic_center" alt="size_tiered_compaction"><ul>
+<li>tiered compaction(suitable for reads scenarios)<br><img src="/2023/10/02/lsm-tree/size_tiered_compaction.png#pic_center" alt="size_tiered_compaction"><ul>
 <li>high read and space amplification</li>
 <li>in each tier, storage unit(memtable/sstable in level 0) size won’t be changed unitl it is merged into next-level SSTable. The size of a single SSTable in the next level is the sum of the number of SSTables in the previous level.</li>
 </ul>
@@ -59,7 +59,7 @@
 </ul>
 </li>
 </ul>
-<p><img src="leveled_compaction.png#pic_center" alt="leveled compaction"></p>
+<p><img src="/2023/10/02/lsm-tree/leveled_compaction.png#pic_center" alt="leveled compaction"></p>
 <h2 id="Improvement"><a href="#Improvement" class="headerlink" title="Improvement"></a>Improvement</h2><ul>
 <li><strong>bLSM</strong></li>
 <li><strong>Diff-Index LSM</strong></li>
