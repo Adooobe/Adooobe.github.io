@@ -49,36 +49,36 @@
 
   <url>
     <loc>https://adooobe.github.io/Adooobe.github.io</loc>
-    <lastmod>2023-10-26</lastmod>
+    <lastmod>2023-10-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
 
   
   <url>
-    <loc>https://adooobe.github.io/Adooobe.github.io/tags/LSM-Storage/</loc>
-    <lastmod>2023-10-26</lastmod>
+    <loc>https://adooobe.github.io/Adooobe.github.io/tags/Bloom-Filter/</loc>
+    <lastmod>2023-10-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://adooobe.github.io/Adooobe.github.io/tags/Bloom-Filter/</loc>
-    <lastmod>2023-10-26</lastmod>
+    <loc>https://adooobe.github.io/Adooobe.github.io/tags/LSM-Storage/</loc>
+    <lastmod>2023-10-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://adooobe.github.io/Adooobe.github.io/tags/bigdata/</loc>
-    <lastmod>2023-10-26</lastmod>
+    <lastmod>2023-10-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://adooobe.github.io/Adooobe.github.io/tags/big-data-index/</loc>
-    <lastmod>2023-10-26</lastmod>
+    <lastmod>2023-10-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
