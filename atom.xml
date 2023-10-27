@@ -3,11 +3,11 @@
   <title>Finch&#39;s Blog</title>
   
   
-  <link href="https://adooobe.github.io/Adooobe.github.io/atom.xml" rel="self"/>
+  <link href="https://adooobe.github.io/atom.xml" rel="self"/>
   
-  <link href="https://adooobe.github.io/Adooobe.github.io/"/>
+  <link href="https://adooobe.github.io/"/>
   <updated>2023-10-23T06:31:31.321Z</updated>
-  <id>https://adooobe.github.io/Adooobe.github.io/</id>
+  <id>https://adooobe.github.io/</id>
   
   <author>
     <name>Finchxia</name>
@@ -18,8 +18,8 @@
   
   <entry>
     <title>hudi-cdc</title>
-    <link href="https://adooobe.github.io/Adooobe.github.io/2023/10/23/hudi-cdc/"/>
-    <id>https://adooobe.github.io/Adooobe.github.io/2023/10/23/hudi-cdc/</id>
+    <link href="https://adooobe.github.io/2023/10/23/hudi-cdc/"/>
+    <id>https://adooobe.github.io/2023/10/23/hudi-cdc/</id>
     <published>2023-10-23T03:16:06.000Z</published>
     <updated>2023-10-23T06:31:31.321Z</updated>
     
@@ -39,8 +39,8 @@
   
   <entry>
     <title>z-order</title>
-    <link href="https://adooobe.github.io/Adooobe.github.io/2023/10/19/z-order/"/>
-    <id>https://adooobe.github.io/Adooobe.github.io/2023/10/19/z-order/</id>
+    <link href="https://adooobe.github.io/2023/10/19/z-order/"/>
+    <id>https://adooobe.github.io/2023/10/19/z-order/</id>
     <published>2023-10-19T05:33:09.000Z</published>
     <updated>2023-10-23T01:58:15.691Z</updated>
     
@@ -55,14 +55,14 @@
     
     
     
-    <category term="big data, index" scheme="https://adooobe.github.io/Adooobe.github.io/tags/big-data-index/"/>
+    <category term="big data, index" scheme="https://adooobe.github.io/tags/big-data-index/"/>
     
   </entry>
   
   <entry>
     <title>Apache Arrow For the first time</title>
-    <link href="https://adooobe.github.io/Adooobe.github.io/2023/10/08/apache-arrow/"/>
-    <id>https://adooobe.github.io/Adooobe.github.io/2023/10/08/apache-arrow/</id>
+    <link href="https://adooobe.github.io/2023/10/08/apache-arrow/"/>
+    <id>https://adooobe.github.io/2023/10/08/apache-arrow/</id>
     <published>2023-10-08T12:17:14.000Z</published>
     <updated>2023-10-19T08:57:56.332Z</updated>
     
@@ -78,14 +78,14 @@
     
     
     
-    <category term="bigdata" scheme="https://adooobe.github.io/Adooobe.github.io/tags/bigdata/"/>
+    <category term="bigdata" scheme="https://adooobe.github.io/tags/bigdata/"/>
     
   </entry>
   
   <entry>
     <title>the principle and application of LSM Tree</title>
-    <link href="https://adooobe.github.io/Adooobe.github.io/2023/10/02/lsm-tree/"/>
-    <id>https://adooobe.github.io/Adooobe.github.io/2023/10/02/lsm-tree/</id>
+    <link href="https://adooobe.github.io/2023/10/02/lsm-tree/"/>
+    <id>https://adooobe.github.io/2023/10/02/lsm-tree/</id>
     <published>2023-10-02T11:24:02.000Z</published>
     <updated>2023-10-19T07:51:30.642Z</updated>
     
@@ -101,14 +101,14 @@
     
     
     
-    <category term="LSM Storage" scheme="https://adooobe.github.io/Adooobe.github.io/tags/LSM-Storage/"/>
+    <category term="LSM Storage" scheme="https://adooobe.github.io/tags/LSM-Storage/"/>
     
   </entry>
   
   <entry>
     <title>Bloom Filter Implementation and Optimization</title>
-    <link href="https://adooobe.github.io/Adooobe.github.io/2023/10/02/bloom/"/>
-    <id>https://adooobe.github.io/Adooobe.github.io/2023/10/02/bloom/</id>
+    <link href="https://adooobe.github.io/2023/10/02/bloom/"/>
+    <id>https://adooobe.github.io/2023/10/02/bloom/</id>
     <published>2023-10-02T11:11:52.000Z</published>
     <updated>2023-10-26T09:35:39.115Z</updated>
     
@@ -123,7 +123,7 @@
     
     
     
-    <category term="Bloom-Filter" scheme="https://adooobe.github.io/Adooobe.github.io/tags/Bloom-Filter/"/>
+    <category term="Bloom-Filter" scheme="https://adooobe.github.io/tags/Bloom-Filter/"/>
     
   </entry>
   
