@@ -2,18 +2,27 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://adooobe.github.io/2023/12/21/mysql-cdc/</loc>
+    <loc>https://adooobe.github.io/2023/10/30/snowflake-stream/</loc>
     
-    <lastmod>2023-12-22</lastmod>
+    <lastmod>2023-12-29</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://adooobe.github.io/2023/10/30/snowflake-stream/</loc>
+    <loc>https://adooobe.github.io/2023/10/23/hudi-cdc/</loc>
     
-    <lastmod>2023-11-15</lastmod>
+    <lastmod>2023-12-29</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://adooobe.github.io/2023/12/21/mysql-cdc/</loc>
+    
+    <lastmod>2023-12-29</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -23,15 +32,6 @@
     <loc>https://adooobe.github.io/2023/10/02/bloom/</loc>
     
     <lastmod>2023-11-15</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://adooobe.github.io/2023/10/23/hudi-cdc/</loc>
-    
-    <lastmod>2023-10-23</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -67,7 +67,7 @@
 
   <url>
     <loc>https://adooobe.github.io/</loc>
-    <lastmod>2023-12-22</lastmod>
+    <lastmod>2023-12-29</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -75,42 +75,42 @@
   
   <url>
     <loc>https://adooobe.github.io/tags/bigdata/</loc>
-    <lastmod>2023-12-22</lastmod>
+    <lastmod>2023-12-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://adooobe.github.io/tags/Bloom-Filter/</loc>
-    <lastmod>2023-12-22</lastmod>
+    <lastmod>2023-12-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://adooobe.github.io/tags/LSM-Storage/</loc>
-    <lastmod>2023-12-22</lastmod>
+    <lastmod>2023-12-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://adooobe.github.io/tags/big-data-index/</loc>
-    <lastmod>2023-12-22</lastmod>
+    <lastmod>2023-12-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://adooobe.github.io/tags/stream-cdc-snowflake/</loc>
-    <lastmod>2023-12-22</lastmod>
+    <lastmod>2023-12-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://adooobe.github.io/tags/cdc-mysql-binlog/</loc>
-    <lastmod>2023-12-22</lastmod>
+    <lastmod>2023-12-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
