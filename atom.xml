@@ -65,14 +65,14 @@
     <link href="https://adooobe.github.io/2023/10/23/hudi-cdc/"/>
     <id>https://adooobe.github.io/2023/10/23/hudi-cdc/</id>
     <published>2023-10-23T03:16:06.000Z</published>
-    <updated>2023-12-29T07:09:41.448Z</updated>
+    <updated>2023-12-29T12:15:40.937Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="Databend"><a href="#Databend" class="headerlink" title="Databend"></a>Databend</h2><h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><ol><li><a href="https://github.com/apache/hudi/blob/master/rfc/rfc-51/rfc-51.md#approvers">https://github.com/apache/hudi/blob/master/rfc/rfc-51/rfc-51.md#approvers</a></li><li><a href="https://github.com/apache/hudi/pull/5885/commits">https://github.com/apache/hudi/pull/5885/commits</a></li></ol>]]></content>
+    <content type="html"><![CDATA[<h2 id="Two-choices"><a href="#Two-choices" class="headerlink" title="Two choices"></a>Two choices</h2><h3 id="Diff"><a href="#Diff" class="headerlink" title="Diff"></a>Diff</h3><ul><li>Based on Time-Travel</li><li>Without any redundant data</li><li>Low query performance</li><li>Improved by data split(file, bucket .etc)</li></ul><h3 id="CDF"><a href="#CDF" class="headerlink" title="CDF"></a>CDF</h3><ul><li>Need addtional metadata column and writing cost</li><li>Better query performance</li></ul><h2 id="Databend"><a href="#Databend" class="headerlink" title="Databend"></a>Databend</h2><h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><ol><li><a href="https://github.com/apache/hudi/blob/master/rfc/rfc-51/rfc-51.md#approvers">https://github.com/apache/hudi/blob/master/rfc/rfc-51/rfc-51.md#approvers</a></li><li><a href="https://github.com/apache/hudi/pull/5885/commits">https://github.com/apache/hudi/pull/5885/commits</a></li></ol>]]></content>
     
     
       
       
-    <summary type="html">&lt;h2 id=&quot;Databend&quot;&gt;&lt;a href=&quot;#Databend&quot; class=&quot;headerlink&quot; title=&quot;Databend&quot;&gt;&lt;/a&gt;Databend&lt;/h2&gt;&lt;h2 id=&quot;Reference&quot;&gt;&lt;a href=&quot;#Reference&quot; class=&quot;he</summary>
+    <summary type="html">&lt;h2 id=&quot;Two-choices&quot;&gt;&lt;a href=&quot;#Two-choices&quot; class=&quot;headerlink&quot; title=&quot;Two choices&quot;&gt;&lt;/a&gt;Two choices&lt;/h2&gt;&lt;h3 id=&quot;Diff&quot;&gt;&lt;a href=&quot;#Diff&quot; class=&quot;</summary>
       
     
     
