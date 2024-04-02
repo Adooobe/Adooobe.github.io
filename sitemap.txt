@@ -1,6 +1,6 @@
+https://adooobe.github.io/2023/12/21/mysql-cdc/
 https://adooobe.github.io/2023/10/23/hudi-cdc/
 https://adooobe.github.io/2023/10/30/snowflake-stream/
-https://adooobe.github.io/2023/12/21/mysql-cdc/
 https://adooobe.github.io/2023/10/02/bloom/
 https://adooobe.github.io/2023/10/19/z-order/
 https://adooobe.github.io/2023/10/08/apache-arrow/
