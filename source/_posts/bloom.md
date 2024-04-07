@@ -59,7 +59,7 @@ When an element inserts into BloomFilter, two positions will be changed to 1 in 
 
 It is worth noting that different elements can get same hash values computed by hash function. It means one grid in the bit array is not independently used by unique element but shared. In other words, it can be covered.
 
-So，in practical applications, how do we determine the number of hash functions to choose? How much space should be allocated for the array? What is the expected number of elements to be stored? How do we control the error? You can refer to the calculation formulas to determine how to design a bloom filter.
+So, in practical applications, how do we determine the number of hash functions to choose? How much space should be allocated for the array? What is the expected number of elements to be stored? How do we control the error? You can refer to the calculation formulas to determine how to design a bloom filter.
 
 n = ceil(m / (-k / log(1 - exp(log(p) / k))))
 
@@ -108,7 +108,7 @@ There are two limitations that have always restricted the usage of Bloom Filter,
 
 #### Scalable Bloom Filters (SBF)
 
-![scalable bloom filter structure](scalable_bloom_filter.png#pic_center)
+![scalable bloom filter structure](./bloom/scalable_bloom_filter.png#pic_center)
 
 when the filter reaches some fulfillness threshold, it becomes read-only and new bigger and writable filter is created in its place. If in its turn it becomes saturated, the operation is repeated. Every new filter, in order to keep the false positives rate close to the targeted one, has more hash functions than the previous filter.
 
@@ -126,7 +126,25 @@ For the second question, CBF provides ability to delete elements in Bloom Filter
 
 #### Cuckoo Filter
 
-As the 
+As an “improved version” of the Bloom Filter, the Cuckoo Filter uses the minimum space cost to achieve a reduction in false positives and support for reverse deletion.
+
+![Cuckoo Filter](cuckoo_filter.png#pic_center)
+
+It only uses two hash functions H1 and H2 (on two hash tables/buckets T1 and T2) for Cuckoo Filter to compute the postion of input elements. If an element E1 comes into Cuckoo Filter:
+
+1. Compute the position on hashtable(or bucket) T1 with H1 and insert if the position P1 empty
+2. If the P1 has other element, compute the position P2 on hashtable T2 with H2 and try to insert again
+3. If the P2 is still not empty, kick out the element of the position on T2 then insert E1 into P2
+
+There are serveral issue on this design:
+
+1. kick-out loop
+2. how to solve the element kicked out
+3. size of hashtable
+
+Luckily, the designer makes a brilliant idea to solve all three problems at once, `MaxLoop` and `Resize`.
+
+Cuckoo Filter would record the number of loop and when it comes to the `MaxLoop`, hash table would be resized and rehash (I think it needs to be allocated addtional memory to save the set of the elements and it can do rehash)
 
 ## Reference
 
