@@ -2,6 +2,24 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://adooobe.github.io/Adooobe.github.io/2023/10/30/snowflake-stream/</loc>
+    
+    <lastmod>2024-04-07</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://adooobe.github.io/Adooobe.github.io/2023/12/21/mysql-cdc/</loc>
+    
+    <lastmod>2024-04-07</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://adooobe.github.io/Adooobe.github.io/2023/10/23/hudi-cdc/</loc>
     
     <lastmod>2024-01-15</lastmod>
@@ -78,6 +96,20 @@
   
   <url>
     <loc>https://adooobe.github.io/Adooobe.github.io/tags/big-data-index/</loc>
+    <lastmod>2024-04-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://adooobe.github.io/Adooobe.github.io/tags/stream-cdc-snowflake/</loc>
+    <lastmod>2024-04-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://adooobe.github.io/Adooobe.github.io/tags/cdc-mysql-binlog/</loc>
     <lastmod>2024-04-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
