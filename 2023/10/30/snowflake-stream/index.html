@@ -10,10 +10,7 @@
 <p>In MySQL design, to avoid disk operation each DML and load data from disk each query statement, there is a <code>buffer pool</code> to reduce disk I/O and mySQL will query the adjacent data of aiming data, then put them into buffer pool as one page.</p>
 <p>However, when we make changes to the data in the buffer pool, the buffer pool does not immediately flush data into disk, resulting in inconsistency between the data in the buffer pool and the data on the disk. It is called a dirty page. If MySQL crashed when dirty page happened, ACID was destroyed.</p>
 <p><img src="/2023/10/30/snowflake-stream/buffer_pool.png#pic_center" alt="buffer pool"></p>
-<h2 id="Implementation"><a href="#Implementation" class="headerlink" title="Implementation"></a>Implementation</h2><div class="admonition note"><p class="admonition-title">Test-Hexo-Plugin
-</p></div>
-
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Hello </span><br></pre></td></tr></table></figure>
+<h2 id="Implementation"><a href="#Implementation" class="headerlink" title="Implementation"></a>Implementation</h2><p>!!! note Test-Hexo-Plugin<br>hello</p>
 <h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><ol>
 <li><a target="_blank" rel="noopener" href="https://dl.acm.org/doi/pdf/10.1145/3589776">https://dl.acm.org/doi/pdf/10.1145/3589776</a></li>
 <li><a target="_blank" rel="noopener" href="https://15445.courses.cs.cmu.edu/fall2021/notes/05-bufferpool.pdf">https://15445.courses.cs.cmu.edu/fall2021/notes/05-bufferpool.pdf</a></li>
