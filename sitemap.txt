@@ -1,8 +1,12 @@
+https://adooobe.github.io/2024/01/23/Ariel/
+https://adooobe.github.io/2024/04/26/rust-nom/
+https://adooobe.github.io/2024/04/18/external-merge-sort/
+https://adooobe.github.io/2024/04/22/raft/
+https://adooobe.github.io/2023/10/08/apache-arrow/
+https://adooobe.github.io/2023/10/30/snowflake-stream/
 https://adooobe.github.io/2024/04/09/sql-parser/
 https://adooobe.github.io/2024/04/10/data-lineage/
-https://adooobe.github.io/2023/10/30/snowflake-stream/
 https://adooobe.github.io/2023/10/19/z-order/
-https://adooobe.github.io/2023/10/08/apache-arrow/
 https://adooobe.github.io/2023/12/21/mysql-cdc/
 https://adooobe.github.io/2023/10/23/hudi-cdc/
 https://adooobe.github.io/2023/10/02/bloom/
@@ -15,3 +19,5 @@ https://adooobe.github.io/tags/big-data-index/
 https://adooobe.github.io/tags/stream-cdc-snowflake/
 https://adooobe.github.io/tags/cdc-mysql-binlog/
 https://adooobe.github.io/tags/sqlparser-TDOP/
+https://adooobe.github.io/tags/you/
+https://adooobe.github.io/tags/MergeSort/

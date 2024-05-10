@@ -2,6 +2,60 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://adooobe.github.io/2024/01/23/Ariel/</loc>
+    
+    <lastmod>2024-04-26</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://adooobe.github.io/2024/04/26/rust-nom/</loc>
+    
+    <lastmod>2024-04-26</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://adooobe.github.io/2024/04/18/external-merge-sort/</loc>
+    
+    <lastmod>2024-04-26</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://adooobe.github.io/2024/04/22/raft/</loc>
+    
+    <lastmod>2024-04-22</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://adooobe.github.io/2023/10/08/apache-arrow/</loc>
+    
+    <lastmod>2024-04-17</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://adooobe.github.io/2023/10/30/snowflake-stream/</loc>
+    
+    <lastmod>2024-04-11</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://adooobe.github.io/2024/04/09/sql-parser/</loc>
     
     <lastmod>2024-04-10</lastmod>
@@ -20,25 +74,7 @@
   </url>
   
   <url>
-    <loc>https://adooobe.github.io/2023/10/30/snowflake-stream/</loc>
-    
-    <lastmod>2024-04-08</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://adooobe.github.io/2023/10/19/z-order/</loc>
-    
-    <lastmod>2024-04-08</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://adooobe.github.io/2023/10/08/apache-arrow/</loc>
     
     <lastmod>2024-04-08</lastmod>
     
@@ -85,7 +121,7 @@
 
   <url>
     <loc>https://adooobe.github.io/</loc>
-    <lastmod>2024-04-10</lastmod>
+    <lastmod>2024-05-10</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -93,49 +129,63 @@
   
   <url>
     <loc>https://adooobe.github.io/tags/bigdata/</loc>
-    <lastmod>2024-04-10</lastmod>
+    <lastmod>2024-05-10</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://adooobe.github.io/tags/Bloom-Filter/</loc>
-    <lastmod>2024-04-10</lastmod>
+    <lastmod>2024-05-10</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://adooobe.github.io/tags/LSM-Storage/</loc>
-    <lastmod>2024-04-10</lastmod>
+    <lastmod>2024-05-10</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://adooobe.github.io/tags/big-data-index/</loc>
-    <lastmod>2024-04-10</lastmod>
+    <lastmod>2024-05-10</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://adooobe.github.io/tags/stream-cdc-snowflake/</loc>
-    <lastmod>2024-04-10</lastmod>
+    <lastmod>2024-05-10</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://adooobe.github.io/tags/cdc-mysql-binlog/</loc>
-    <lastmod>2024-04-10</lastmod>
+    <lastmod>2024-05-10</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://adooobe.github.io/tags/sqlparser-TDOP/</loc>
-    <lastmod>2024-04-10</lastmod>
+    <lastmod>2024-05-10</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://adooobe.github.io/tags/you/</loc>
+    <lastmod>2024-05-10</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://adooobe.github.io/tags/MergeSort/</loc>
+    <lastmod>2024-05-10</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
