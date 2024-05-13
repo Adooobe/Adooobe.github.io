@@ -1,5 +1,6 @@
-https://adooobe.github.io/2024/01/23/Ariel/
 https://adooobe.github.io/2024/04/26/rust-nom/
+https://adooobe.github.io/2024/05/10/databend-pipeline/
+https://adooobe.github.io/2024/01/23/Ariel/
 https://adooobe.github.io/2024/04/18/external-merge-sort/
 https://adooobe.github.io/2024/04/22/raft/
 https://adooobe.github.io/2023/10/08/apache-arrow/
@@ -21,3 +22,4 @@ https://adooobe.github.io/tags/cdc-mysql-binlog/
 https://adooobe.github.io/tags/sqlparser-TDOP/
 https://adooobe.github.io/tags/you/
 https://adooobe.github.io/tags/MergeSort/
+https://adooobe.github.io/tags/databend-query-execution/
