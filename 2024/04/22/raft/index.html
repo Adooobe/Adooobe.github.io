@@ -1,2 +1,36 @@
 <!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><title> raft · Finch's Blog</title><meta name="description" content="raft - Finch Xia"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="icon" href="/favicon.png"><link rel="stylesheet" href="/css/apollo.css"><link rel="search" type="application/opensearchdescription+xml" href="https://Adooobe.github.io/atom.xml" title="Finch's Blog"><meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="Finch's Blog" type="application/atom+xml">
-</head><body><div class="wrap"><header><a href="/" class="logo-link"><img src="/favicon.png" alt="logo"></a><ul class="nav nav-list"><li class="nav-list-item"><a href="/" target="_self" class="nav-list-link">BLOG</a></li><li class="nav-list-item"><a href="/archives/" target="_self" class="nav-list-link">ARCHIVE</a></li><li class="nav-list-item"><a href="https://github.com/Adooobe" target="_blank" class="nav-list-link">GITHUB</a></li></ul></header><main class="container"><div class="post"><article class="post-block"><h1 class="post-title">raft</h1><div class="post-info">Apr 22, 2024</div><div class="post-content"></div></article></div></main><footer><div class="paginator"><a href="/2024/04/26/rust-nom/" class="prev">PREV</a><a href="/2024/04/18/external-merge-sort/" class="next">NEXT</a></div><div class="copyright"><p>For Ariel, the most beautiful memories</p><p>© 2023 - 2024 <a href="https://Adooobe.github.io">Finch Xia</a>, powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/pinggod/hexo-theme-apollo" target="_blank">hexo-theme-apollo</a>.</p></div></footer></div><script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" integrity="sha384-crwIf/BuaWM9rM65iM+dWFldgQ1Un8jWZMuh3puxb8TOY9+linwLoI7ZHZT+aekW" crossorigin="anonymous"></script></body></html>
+</head><body><div class="wrap"><header><a href="/" class="logo-link"><img src="/favicon.png" alt="logo"></a><ul class="nav nav-list"><li class="nav-list-item"><a href="/" target="_self" class="nav-list-link">BLOG</a></li><li class="nav-list-item"><a href="/archives/" target="_self" class="nav-list-link">ARCHIVE</a></li><li class="nav-list-item"><a href="https://github.com/Adooobe" target="_blank" class="nav-list-link">GITHUB</a></li></ul></header><main class="container"><div class="post"><article class="post-block"><h1 class="post-title">raft</h1><div class="post-info">Apr 22, 2024</div><div class="post-content"><h2 id="Main-Concepts"><a href="#Main-Concepts" class="headerlink" title="Main Concepts"></a>Main Concepts</h2><ul>
+<li>Data consistency：Two main consistency scheme are <strong>Shared Memory</strong> and <strong>Messages Passing</strong>. We know that in a distributed system based on message passing, the following errors are inevitable: processes may run slowly, be killed, or restart, leading to possible message delays, losses, or repetitions. It is provided some definitions to classify or solve these troubles:<ul>
+<li>Strong consistency: when a update operator finished, any query should fetch the latest result.</li>
+<li>Weak consistency: latency is allowed when upating data.</li>
+</ul>
+</li>
+<li>Term: A time duration of one node as leader of the cluster. The new term means the new leader.</li>
+<li>LOG Replication: Based on the State Machine Replication Theory, every node stored the same commands in log files with the same order. In Raft, there is a <strong>Consensus</strong> module to receive the commands from clients and add them to log files.</li>
+</ul>
+<h2 id="Node-Role"><a href="#Node-Role" class="headerlink" title="Node Role"></a>Node Role</h2><ul>
+<li>Leader: The most important and the unique role in one term. Leader will handle all the requests from client.</li>
+<li>Follower: Followers would only <strong>response</strong> the requests of <strong>Leader</strong>. If any client sets connection to a Follower, redirection is neccessary.</li>
+<li>Candidate: A temporary role when a term ended.</li>
+</ul>
+<h2 id="Node-Communication"><a href="#Node-Communication" class="headerlink" title="Node Communication"></a>Node Communication</h2><p><img src="/2024/04/22/raft/appendentities.png#pic_center" alt="Appendentities"></p>
+<p><img src="/2024/04/22/raft/RequestVote.png#pic_center" alt="RequestVote"></p>
+<p><img src="/2024/04/22/raft/installsnapshot.png#pic_center" alt="InstallSnapshot.png"></p>
+<h4 id="Receiver-implementation"><a href="#Receiver-implementation" class="headerlink" title="Receiver implementation:"></a>Receiver implementation:</h4><ul>
+<li>Reply immediately if term &lt; currentTerm.</li>
+<li>Create a new snapshot file if it is the first chunk (offset is 0).</li>
+<li>Write data into the snapshot file at a given offset.</li>
+<li>Reply and wait for more data chunks if done is false.</li>
+<li>Save the snapshot file, discard any existing or partial snapshot with a smaller index.</li>
+<li>If existing log entry has the same index and term as snapshot’s last included entry, retain log entries following it and reply.</li>
+<li>Discard the entire log.</li>
+<li>Reset the state machine using snapshot contents (and load snapshot’s cluster configuration).</li>
+</ul>
+<h2 id="Log-Replication"><a href="#Log-Replication" class="headerlink" title="Log Replication"></a>Log Replication</h2><h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><ol>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/27207160">https://zhuanlan.zhihu.com/p/27207160</a></li>
+<li><a target="_blank" rel="noopener" href="https://web.stanford.edu/~ouster/cgi-bin/papers/OngaroPhD.pdf">https://web.stanford.edu/~ouster/cgi-bin/papers/OngaroPhD.pdf</a></li>
+<li><a target="_blank" rel="noopener" href="https://raft.github.io/raft.pdf">https://raft.github.io/raft.pdf</a></li>
+<li><a target="_blank" rel="noopener" href="https://wingsxdu.com/posts/algorithms/raft/">https://wingsxdu.com/posts/algorithms/raft/</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.sofastack.tech/en/projects/sofa-jraft/raft-introduction/">https://www.sofastack.tech/en/projects/sofa-jraft/raft-introduction/</a></li>
+</ol>
+</div></article></div></main><footer><div class="paginator"><a href="/2024/04/26/rust-nom/" class="prev">PREV</a><a href="/2024/04/18/external-merge-sort/" class="next">NEXT</a></div><div class="copyright"><p>For Ariel, the most beautiful memories</p><p>© 2023 - 2024 <a href="https://Adooobe.github.io">Finch Xia</a>, powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/pinggod/hexo-theme-apollo" target="_blank">hexo-theme-apollo</a>.</p></div></footer></div><script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" integrity="sha384-crwIf/BuaWM9rM65iM+dWFldgQ1Un8jWZMuh3puxb8TOY9+linwLoI7ZHZT+aekW" crossorigin="anonymous"></script></body></html>
