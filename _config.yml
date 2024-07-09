@@ -7,11 +7,11 @@ title: Finch's Blog
 subtitle: ''
 description: ''
 keywords: Bigdata
-author: Finchxia
+author: Finch Xia
 language: en
 timezone: 'Asia/Shanghai'
 
-url: https://Adooobe.github.io/Adooobe.github.io
+url: https://Adooobe.github.io
 permalink: :year/:month/:day/:title/
 permalink_defaults:
 pretty_urls:
@@ -38,7 +38,7 @@ external_link:
   exclude: ''
 filename_case: 0
 render_drafts: false
-post_asset_folder: false
+post_asset_folder: true
 relative_link: false
 future: true
 highlight:
@@ -101,12 +101,15 @@ theme: apollo
 ## Docs: https://hexo.io/docs/one-command-deployment
 deploy:
   type: git
-  repo: https://{{github.token}}@github.com/Adooobe/Adooobe.github.io.git
+  repo: https://github.com/Adooobe/Adooobe.github.io.git
   branch: gh_pages
-  token: {{github.token2}}
 
 archive_generator:
     per_page: 0
     yearly: false
     monthly: false
     daily: false
+
+topindex_generator:
+  per_page: 10 #Posts displayed per page. (0 = disable pagination)
+  order_by: -date #Posts order. (Order by date descending by default)

@@ -2,6 +2,7 @@
 title: mysql-cdc
 date: 2023-12-21 15:38:37
 tags: cdc mysql binlog
+top: 1
 ---
 ## CDC Process
 
@@ -526,6 +527,8 @@ class RowsEvent(BinLogEvent):
             if self._fail_on_table_metadata_unavailable:
                 raise TableMetadataUnavailableError(self.table)
 ```
+
+Across fitering the database/table, you can store the table ID into table map cache what you want when parsing TableMapEvent. For the CDC program, it only needs to parse the Header(to get table ID) of the RowEvents. Then, continue to handle the events if it is in the table map or just drop them if not.
 
 ## Reference
 
