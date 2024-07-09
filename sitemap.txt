@@ -1,4 +1,6 @@
+https://adooobe.github.io/2024/07/09/flink-snowpipe-streaming-connector/
 https://adooobe.github.io/2024/05/14/weekly-summary/
+https://adooobe.github.io/2024/06/16/how-query-engines-work/
 https://adooobe.github.io/2024/04/22/raft/
 https://adooobe.github.io/2024/04/26/rust-nom/
 https://adooobe.github.io/2023/10/30/snowflake-stream/
@@ -26,3 +28,4 @@ https://adooobe.github.io/tags/MergeSort/
 https://adooobe.github.io/tags/databend-query-execution/
 https://adooobe.github.io/tags/Consensus-Raft-Kafka/
 https://adooobe.github.io/tags/summary/
+https://adooobe.github.io/tags/snowflake-flink-connector/
