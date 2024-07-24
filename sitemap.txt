@@ -1,4 +1,4 @@
-https://adooobe.github.io/2024/07/09/flink-snowpipe-streaming-connector/
+https://adooobe.github.io/2024/07/24/flink-snowflake-connector/
 https://adooobe.github.io/2024/04/22/raft/
 https://adooobe.github.io/2023/10/19/z-order/
 https://adooobe.github.io/2023/10/02/lsm-tree/
