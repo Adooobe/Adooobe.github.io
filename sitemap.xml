@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://adooobe.github.io/2024/07/24/flink-snowflake-connector/</loc>
+    
+    <lastmod>2024-08-14</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://adooobe.github.io/2024/08/12/shuffle-all-in-one/</loc>
     
     <lastmod>2024-08-12</lastmod>
@@ -14,15 +23,6 @@
     <loc>https://adooobe.github.io/2024/05/14/weekly-summary/</loc>
     
     <lastmod>2024-08-12</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://adooobe.github.io/2024/07/24/flink-snowflake-connector/</loc>
-    
-    <lastmod>2024-07-24</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -166,7 +166,7 @@
 
   <url>
     <loc>https://adooobe.github.io/</loc>
-    <lastmod>2024-08-13</lastmod>
+    <lastmod>2024-08-14</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -174,91 +174,91 @@
   
   <url>
     <loc>https://adooobe.github.io/tags/bigdata/</loc>
-    <lastmod>2024-08-13</lastmod>
+    <lastmod>2024-08-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://adooobe.github.io/tags/Bloom-Filter/</loc>
-    <lastmod>2024-08-13</lastmod>
+    <lastmod>2024-08-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://adooobe.github.io/tags/LSM-Storage/</loc>
-    <lastmod>2024-08-13</lastmod>
+    <lastmod>2024-08-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://adooobe.github.io/tags/big-data-index/</loc>
-    <lastmod>2024-08-13</lastmod>
+    <lastmod>2024-08-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://adooobe.github.io/tags/stream-cdc-snowflake/</loc>
-    <lastmod>2024-08-13</lastmod>
+    <lastmod>2024-08-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://adooobe.github.io/tags/cdc-mysql-binlog/</loc>
-    <lastmod>2024-08-13</lastmod>
+    <lastmod>2024-08-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://adooobe.github.io/tags/sqlparser-TDOP/</loc>
-    <lastmod>2024-08-13</lastmod>
+    <lastmod>2024-08-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://adooobe.github.io/tags/you/</loc>
-    <lastmod>2024-08-13</lastmod>
+    <lastmod>2024-08-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://adooobe.github.io/tags/MergeSort/</loc>
-    <lastmod>2024-08-13</lastmod>
+    <lastmod>2024-08-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://adooobe.github.io/tags/databend-query-execution/</loc>
-    <lastmod>2024-08-13</lastmod>
+    <lastmod>2024-08-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://adooobe.github.io/tags/Consensus-Raft-Kafka/</loc>
-    <lastmod>2024-08-13</lastmod>
+    <lastmod>2024-08-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://adooobe.github.io/tags/summary/</loc>
-    <lastmod>2024-08-13</lastmod>
+    <lastmod>2024-08-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://adooobe.github.io/tags/snowflake-flink-connector/</loc>
-    <lastmod>2024-08-13</lastmod>
+    <lastmod>2024-08-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
