@@ -6,7 +6,7 @@
   <link href="https://adooobe.github.io/atom.xml" rel="self"/>
   
   <link href="https://adooobe.github.io/"/>
-  <updated>2024-08-12T07:25:10.990Z</updated>
+  <updated>2024-12-05T02:18:34.138Z</updated>
   <id>https://adooobe.github.io/</id>
   
   <author>
@@ -15,6 +15,39 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>cloud-native-flink</title>
+    <link href="https://adooobe.github.io/2024/12/05/cloud-native-flink/"/>
+    <id>https://adooobe.github.io/2024/12/05/cloud-native-flink/</id>
+    <published>2024-12-05T02:17:54.000Z</published>
+    <updated>2024-12-05T02:18:34.138Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="Background"><a href="#Background" class="headerlink" title="Background"></a>Background</h2><h2 id="Architecture"><a href="#Architecture" class="headerlink" title="Architecture"></a>Architecture</h2><h3 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h3><h3 id="Advantages"><a href="#Advantages" class="headerlink" title="Advantages"></a>Advantages</h3><h4 id="Minimalism"><a href="#Minimalism" class="headerlink" title="Minimalism"></a>Minimalism</h4><h4 id="Job-Lifecycle-Management"><a href="#Job-Lifecycle-Management" class="headerlink" title="Job Lifecycle Management"></a>Job Lifecycle Management</h4><h4 id="Job-Manager-High-availability"><a href="#Job-Manager-High-availability" class="headerlink" title="Job Manager High-availability"></a>Job Manager High-availability</h4><h4 id="Ops-Friendly"><a href="#Ops-Friendly" class="headerlink" title="Ops-Friendly"></a>Ops-Friendly</h4><h2 id="Flink-Development-Platform-Dinky"><a href="#Flink-Development-Platform-Dinky" class="headerlink" title="Flink Development Platform - Dinky"></a>Flink Development Platform - Dinky</h2><h2 id="Appendix"><a href="#Appendix" class="headerlink" title="Appendix"></a>Appendix</h2>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;Background&quot;&gt;&lt;a href=&quot;#Background&quot; class=&quot;headerlink&quot; title=&quot;Background&quot;&gt;&lt;/a&gt;Background&lt;/h2&gt;&lt;h2 id=&quot;Architecture&quot;&gt;&lt;a href=&quot;#Architect</summary>
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>flink-kubernetes-operator</title>
+    <link href="https://adooobe.github.io/2024/12/05/flink-kubernetes-operator/"/>
+    <id>https://adooobe.github.io/2024/12/05/flink-kubernetes-operator/</id>
+    <published>2024-12-05T02:17:40.000Z</published>
+    <updated>2024-12-05T02:17:40.519Z</updated>
+    
+    
+    
+    
+    
+  </entry>
   
   <entry>
     <title>shuffle-all-in-one</title>
