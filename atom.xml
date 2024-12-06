@@ -6,7 +6,7 @@
   <link href="https://adooobe.github.io/atom.xml" rel="self"/>
   
   <link href="https://adooobe.github.io/"/>
-  <updated>2024-12-05T02:18:34.138Z</updated>
+  <updated>2024-12-06T05:14:20.590Z</updated>
   <id>https://adooobe.github.io/</id>
   
   <author>
@@ -21,14 +21,14 @@
     <link href="https://adooobe.github.io/2024/12/05/cloud-native-flink/"/>
     <id>https://adooobe.github.io/2024/12/05/cloud-native-flink/</id>
     <published>2024-12-05T02:17:54.000Z</published>
-    <updated>2024-12-05T02:18:34.138Z</updated>
+    <updated>2024-12-06T05:14:20.590Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="Background"><a href="#Background" class="headerlink" title="Background"></a>Background</h2><h2 id="Architecture"><a href="#Architecture" class="headerlink" title="Architecture"></a>Architecture</h2><h3 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h3><h3 id="Advantages"><a href="#Advantages" class="headerlink" title="Advantages"></a>Advantages</h3><h4 id="Minimalism"><a href="#Minimalism" class="headerlink" title="Minimalism"></a>Minimalism</h4><h4 id="Job-Lifecycle-Management"><a href="#Job-Lifecycle-Management" class="headerlink" title="Job Lifecycle Management"></a>Job Lifecycle Management</h4><h4 id="Job-Manager-High-availability"><a href="#Job-Manager-High-availability" class="headerlink" title="Job Manager High-availability"></a>Job Manager High-availability</h4><h4 id="Ops-Friendly"><a href="#Ops-Friendly" class="headerlink" title="Ops-Friendly"></a>Ops-Friendly</h4><h2 id="Flink-Development-Platform-Dinky"><a href="#Flink-Development-Platform-Dinky" class="headerlink" title="Flink Development Platform - Dinky"></a>Flink Development Platform - Dinky</h2><h2 id="Appendix"><a href="#Appendix" class="headerlink" title="Appendix"></a>Appendix</h2>]]></content>
+    <content type="html"><![CDATA[<h2 id="Background"><a href="#Background" class="headerlink" title="Background"></a>Background</h2><p>We have a cluster of EMR based on Hadoop and run serveral Flink Streaming job in production so far. However, to formulate the real-time data warehouse and support low-latency data needs, especially for tag services and ad-hoc queries from C-end, a robust SLA guarantee for ETL workflows is essential.</p><p>What we concerned are as follows:</p><ul><li>High Available(Both clusters and jobs)</li><li>Failover</li><li>Maintenance</li></ul><p>In conclusion, we finally decide to use cloud-native Flink to solve or improve our capabilities of streaming ETL.</p><h2 id="Architecture"><a href="#Architecture" class="headerlink" title="Architecture"></a>Architecture</h2><h3 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h3><p><img src="/2024/12/05/cloud-native-flink/architecture.svg#pic_center" alt="structure"></p><h3 id="Advantages"><a href="#Advantages" class="headerlink" title="Advantages"></a>Advantages</h3><h4 id="Minimalism"><a href="#Minimalism" class="headerlink" title="Minimalism"></a>Minimalism</h4><h4 id="Job-Lifecycle-Management"><a href="#Job-Lifecycle-Management" class="headerlink" title="Job Lifecycle Management"></a>Job Lifecycle Management</h4><h4 id="Job-Manager-High-availability"><a href="#Job-Manager-High-availability" class="headerlink" title="Job Manager High-availability"></a>Job Manager High-availability</h4><h4 id="Ops-Friendly"><a href="#Ops-Friendly" class="headerlink" title="Ops-Friendly"></a>Ops-Friendly</h4><h2 id="Flink-Development-Platform-Dinky"><a href="#Flink-Development-Platform-Dinky" class="headerlink" title="Flink Development Platform - Dinky"></a>Flink Development Platform - Dinky</h2><h3 id="Emergency"><a href="#Emergency" class="headerlink" title="Emergency"></a>Emergency</h3><ul><li>Refactor Dinky dinky-gateway module to apply AWS EKS using fabric8 kubernetes client.</li></ul><h3 id="Required"><a href="#Required" class="headerlink" title="Required"></a>Required</h3><ul><li>Add Flink task-related dependencies to the PodTemplate to flexibly include necessary dependencies based on the task requirements without changing the base image.</li><li>set <code>restartNonce</code> to restart Flink K8S Applications without spec change.</li><li>Support parsing the environment parameters of FlinkSQL job to set checkpoint/savepoint into FlinkDeployment.</li><li>Support Autoscaler and Autotuning(new feature in Flink 1.18)</li></ul><h3 id="Important"><a href="#Important" class="headerlink" title="Important"></a>Important</h3><ul><li>Submit Pull Request to Dinky coummunity</li></ul><h3 id="Optional"><a href="#Optional" class="headerlink" title="Optional"></a>Optional</h3><ul><li>set <code>upgradeMode</code> strategy to support <code>savepoint</code></li></ul><h2 id="Appendix"><a href="#Appendix" class="headerlink" title="Appendix"></a>Appendix</h2><ol><li><a href="https://adooobe.github.io/2024/12/05/flink-kubernetes-operator/">https://adooobe.github.io/2024/12/05/flink-kubernetes-operator/</a></li></ol>]]></content>
     
     
       
       
-    <summary type="html">&lt;h2 id=&quot;Background&quot;&gt;&lt;a href=&quot;#Background&quot; class=&quot;headerlink&quot; title=&quot;Background&quot;&gt;&lt;/a&gt;Background&lt;/h2&gt;&lt;h2 id=&quot;Architecture&quot;&gt;&lt;a href=&quot;#Architect</summary>
+    <summary type="html">&lt;h2 id=&quot;Background&quot;&gt;&lt;a href=&quot;#Background&quot; class=&quot;headerlink&quot; title=&quot;Background&quot;&gt;&lt;/a&gt;Background&lt;/h2&gt;&lt;p&gt;We have a cluster of EMR based on Hado</summary>
       
     
     
@@ -41,8 +41,36 @@
     <link href="https://adooobe.github.io/2024/12/05/flink-kubernetes-operator/"/>
     <id>https://adooobe.github.io/2024/12/05/flink-kubernetes-operator/</id>
     <published>2024-12-05T02:17:40.000Z</published>
-    <updated>2024-12-05T02:17:40.519Z</updated>
+    <updated>2024-12-05T02:23:28.099Z</updated>
     
+    <content type="html"><![CDATA[<h2 id="Observation-Pharse"><a href="#Observation-Pharse" class="headerlink" title="Observation Pharse"></a>Observation Pharse</h2><h2 id="Validation-Pharse"><a href="#Validation-Pharse" class="headerlink" title="Validation Pharse"></a>Validation Pharse</h2><h2 id="Reconciliation-Pharse"><a href="#Reconciliation-Pharse" class="headerlink" title="Reconciliation Pharse"></a>Reconciliation Pharse</h2>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;Observation-Pharse&quot;&gt;&lt;a href=&quot;#Observation-Pharse&quot; class=&quot;headerlink&quot; title=&quot;Observation Pharse&quot;&gt;&lt;/a&gt;Observation Pharse&lt;/h2&gt;&lt;h2 id=&quot;V</summary>
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Paper Reading - Bitcask</title>
+    <link href="https://adooobe.github.io/2024/09/21/bitcask/"/>
+    <id>https://adooobe.github.io/2024/09/21/bitcask/</id>
+    <published>2024-09-21T01:09:48.000Z</published>
+    <updated>2024-12-06T05:16:15.057Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><ol><li><a href="https://riak.com/assets/bitcask-intro.pdf">https://riak.com/assets/bitcask-intro.pdf</a></li><li><a href="https://arpitbhayani.me/blogs/bitcask/">https://arpitbhayani.me/blogs/bitcask/</a></li></ol>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;Reference&quot;&gt;&lt;a href=&quot;#Reference&quot; class=&quot;headerlink&quot; title=&quot;Reference&quot;&gt;&lt;/a&gt;Reference&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;&lt;a href=&quot;https://riak.com/assets/bit</summary>
+      
     
     
     
