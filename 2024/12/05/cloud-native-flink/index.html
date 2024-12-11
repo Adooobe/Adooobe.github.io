@@ -6,8 +6,8 @@
 <li>Failover</li>
 <li>Maintenance</li>
 </ul>
-<p>In conclusion, we finally decide to use cloud-native Flink to solve or improve our capabilities of streaming ETL.</p>
-<h2 id="Architecture"><a href="#Architecture" class="headerlink" title="Architecture"></a>Architecture</h2><h3 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h3><p><img src="/2024/12/05/cloud-native-flink/_posts/cloud-native-flink/architecture.svg#pic_center" alt="structure"></p>
+<p>In conclusion, we finally decided to use cloud-native Flink to solve or improve our capabilities of streaming ETL.</p>
+<h2 id="Architecture"><a href="#Architecture" class="headerlink" title="Architecture"></a>Architecture</h2><h3 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h3><p><img src="/2024/12/05/cloud-native-flink/architecture.svg#pic_center" alt="structure"></p>
 <h3 id="Advantages"><a href="#Advantages" class="headerlink" title="Advantages"></a>Advantages</h3><h4 id="Minimalism"><a href="#Minimalism" class="headerlink" title="Minimalism"></a>Minimalism</h4><ul>
 <li>Deploy and run Flink Batch/Streaming Job without Apache Hadoop</li>
 <li>Do not have to install too many redundant components in a huge messy cluster</li>
@@ -19,7 +19,7 @@
 <li>Triggering and managing savepoints</li>
 <li>Handling errors, rolling-back broken upgrades</li>
 </ul>
-<h4 id="Job-Manager-High-availability"><a href="#Job-Manager-High-availability" class="headerlink" title="Job Manager High-availability"></a>Job Manager High-availability</h4><p><img src="/2024/12/05/cloud-native-flink/_posts/cloud-native-flink/jobmanager_ha_overview.png#pic_center" alt="Job Manager HA"></p>
+<h4 id="JobManager-High-availability"><a href="#JobManager-High-availability" class="headerlink" title="JobManager High-availability"></a>JobManager High-availability</h4><p><img src="/2024/12/05/cloud-native-flink/jobmanager_ha_overview.png#pic_center" alt="Job Manager HA"></p>
 <p>Flink’s <a target="_blank" rel="noopener" href="https://nightlies.apache.org/flink/flink-docs-master/docs/deployment/ha/overview/#high-availability-services">high availability services</a> encapsulate the required services to make everything work:</p>
 <ul>
 <li><strong>Leader election</strong> : Selecting a single leader out of a pool of <code>n</code> candidates</li>
