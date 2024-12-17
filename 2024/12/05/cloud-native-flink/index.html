@@ -1,5 +1,5 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><title> cloud-native-flink · Finch's Blog</title><meta name="description" content="cloud-native-flink - Finch Xia"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="icon" href="/favicon.png"><link rel="stylesheet" href="/css/apollo.css"><link rel="search" type="application/opensearchdescription+xml" href="https://Adooobe.github.io/atom.xml" title="Finch's Blog"><meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="Finch's Blog" type="application/atom+xml">
-</head><body><div class="wrap"><header><a href="/" class="logo-link"><img src="/favicon.png" alt="logo"></a><ul class="nav nav-list"><li class="nav-list-item"><a href="/" target="_self" class="nav-list-link">BLOG</a></li><li class="nav-list-item"><a href="/archives/" target="_self" class="nav-list-link">ARCHIVE</a></li><li class="nav-list-item"><a href="https://github.com/Adooobe" target="_blank" class="nav-list-link">GITHUB</a></li></ul></header><main class="container"><div class="post"><article class="post-block"><h1 class="post-title">cloud-native-flink</h1><div class="post-info">Dec 5, 2024</div><div class="post-content"><h2 id="Background"><a href="#Background" class="headerlink" title="Background"></a>Background</h2><p>We have a cluster of EMR based on Hadoop and run several Flink Streaming jobs in production so far. However, to formulate the real-time data warehouse and support low-latency data needs, especially for tag services and ad-hoc queries from C-end, a robust SLA guarantee for ETL workflows is essential.</p>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><title> Flink on K8s VS Flink on Yarn · Finch's Blog</title><meta name="description" content="Flink on K8s VS Flink on Yarn - Finch Xia"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="icon" href="/favicon.png"><link rel="stylesheet" href="/css/apollo.css"><link rel="search" type="application/opensearchdescription+xml" href="https://Adooobe.github.io/atom.xml" title="Finch's Blog"><meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="Finch's Blog" type="application/atom+xml">
+</head><body><div class="wrap"><header><a href="/" class="logo-link"><img src="/favicon.png" alt="logo"></a><ul class="nav nav-list"><li class="nav-list-item"><a href="/" target="_self" class="nav-list-link">BLOG</a></li><li class="nav-list-item"><a href="/archives/" target="_self" class="nav-list-link">ARCHIVE</a></li><li class="nav-list-item"><a href="https://github.com/Adooobe" target="_blank" class="nav-list-link">GITHUB</a></li></ul></header><main class="container"><div class="post"><article class="post-block"><h1 class="post-title">Flink on K8s VS Flink on Yarn</h1><div class="post-info">Dec 5, 2024</div><div class="post-content"><h2 id="Background"><a href="#Background" class="headerlink" title="Background"></a>Background</h2><p>We have a cluster of EMR based on Hadoop and run several Flink Streaming jobs in production so far. However, to formulate the real-time data warehouse and support low-latency data needs, especially for tag services and ad-hoc queries from C-end, a robust SLA guarantee for ETL workflows is essential.</p>
 <p>What we are concerned about are as follows:</p>
 <ul>
 <li>High Available(Both clusters and jobs)</li>
@@ -7,8 +7,17 @@
 <li>Maintenance</li>
 </ul>
 <p>In conclusion, we finally decided to use cloud-native Flink to solve or improve our capabilities of streaming ETL.</p>
-<h2 id="Architecture"><a href="#Architecture" class="headerlink" title="Architecture"></a>Architecture</h2><h3 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h3><p><img src="/2024/12/05/cloud-native-flink/architecture.svg#pic_center" alt="structure"></p>
-<h3 id="Advantages"><a href="#Advantages" class="headerlink" title="Advantages"></a>Advantages</h3><h4 id="Minimalism"><a href="#Minimalism" class="headerlink" title="Minimalism"></a>Minimalism</h4><ul>
+<h2 id="Flink-on-Yarn-Architecture"><a href="#Flink-on-Yarn-Architecture" class="headerlink" title="Flink on Yarn Architecture"></a>Flink on Yarn Architecture</h2><h3 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h3><p><img src="/2024/12/05/cloud-native-flink/yarn-architecture.png#pic_center" alt="yarn-structure"></p>
+<p><img src="/2024/12/05/cloud-native-flink/flink-on-yarn.svg#pic_center" alt="flink-on-yarn"></p>
+<h3 id="Advantages"><a href="#Advantages" class="headerlink" title="Advantages"></a>Advantages</h3><h4 id="Ecosystem-Integration"><a href="#Ecosystem-Integration" class="headerlink" title="Ecosystem Integration"></a>Ecosystem Integration</h4><p>It is well known that Flink can seamlessly integrate into existing Hadoop clusters, leveraging Yarn and other infrastructure like HBase and HDFS within the Hadoop ecosystem.</p>
+<h4 id="Experienced-Practice"><a href="#Experienced-Practice" class="headerlink" title="Experienced Practice"></a>Experienced Practice</h4><p>Before the Kubernetes deployment matured, Flink on Yarn accumulated extensive practical experience in production environments within the industry,  especially in China, where a large amount of related documentation and resources can be found to assist with development.</p>
+<h3 id="Drawbacks"><a href="#Drawbacks" class="headerlink" title="Drawbacks"></a>Drawbacks</h3><h4 id="Heavy-Dependencies"><a href="#Heavy-Dependencies" class="headerlink" title="Heavy Dependencies"></a>Heavy Dependencies</h4><ul>
+<li>HDFS</li>
+<li>ZooKeeper</li>
+</ul>
+<h4 id="“Rigid-Dispatch-Strategy”"><a href="#“Rigid-Dispatch-Strategy”" class="headerlink" title="“Rigid Dispatch Strategy”"></a>“Rigid Dispatch Strategy”</h4><p><img src="/2024/12/05/cloud-native-flink/yarn-resource-management.png#pic_center" alt="yarn-resource-management"></p>
+<h2 id="Cloud-Native-Architecture"><a href="#Cloud-Native-Architecture" class="headerlink" title="Cloud-Native Architecture"></a>Cloud-Native Architecture</h2><h3 id="Overview-1"><a href="#Overview-1" class="headerlink" title="Overview"></a>Overview</h3><p><img src="/2024/12/05/cloud-native-flink/architecture.svg#pic_center" alt="structure"></p>
+<h3 id="Advantages-1"><a href="#Advantages-1" class="headerlink" title="Advantages"></a>Advantages</h3><h4 id="Minimalism"><a href="#Minimalism" class="headerlink" title="Minimalism"></a>Minimalism</h4><ul>
 <li>Deploy and run Flink Batch/Streaming Job without Apache Hadoop</li>
 <li>Do not have to install too many redundant components in a huge messy cluster</li>
 <li>Load dependencies on demand</li>
@@ -24,14 +33,32 @@
 <ul>
 <li><strong>Leader election</strong> : Selecting a single leader out of a pool of <code>n</code> candidates</li>
 <li><strong>Service discovery</strong> : Retrieving the address of the current leader</li>
-<li><strong>State persistence</strong> : Persisting state which is required for the successor to resume the job execution (JobGraphs, user code jars, completed checkpoints)</li>
-</ul>
-<h4 id="Ops-Friendly"><a href="#Ops-Friendly" class="headerlink" title="Ops-Friendly"></a>Ops-Friendly</h4><ul>
-<li>Flink All in EKS</li>
+<li>State persistence : Persisting state which is required for the successor to resume the job execution (JobGraphs, user code jars, completed checkpoints)</li>
+<li><p>Ops-Friendly</p>
+</li>
+<li><p>Flink All in EKS</p>
+</li>
 <li>Job status changed listener</li>
 <li><a target="_blank" rel="noopener" href="https://nightlies.apache.org/flink/flink-docs-master/docs/ops/metrics/">Powerful Metric Reporters</a></li>
 </ul>
-<h2 id="Flink-Development-Platform-Dinky"><a href="#Flink-Development-Platform-Dinky" class="headerlink" title="Flink Development Platform - Dinky"></a>Flink Development Platform - Dinky</h2><p>To facilitate developers in SQL-based development, Dinky, a lightweight Flink development platform came up.</p>
+<h3 id="Drawbacks-1"><a href="#Drawbacks-1" class="headerlink" title="Drawbacks"></a>Drawbacks</h3><h4 id="Higher-Threshold-of-Flink-Kubernetes"><a href="#Higher-Threshold-of-Flink-Kubernetes" class="headerlink" title="Higher Threshold of Flink/Kubernetes"></a>Higher Threshold of Flink/Kubernetes</h4><p>We will assume a good level of Flink Kubernetes and general operational experience for different cluster and job types. For Flink related concepts please refer to <a target="_blank" rel="noopener" href="https://flink.apache.org/">https://flink.apache.org/</a>.</p>
+<ul>
+<li>Kubernete<ul>
+<li>Affinity</li>
+<li>Toleration</li>
+<li>CRs</li>
+<li>Basic APIs</li>
+</ul>
+</li>
+<li>Flink<ul>
+<li>FlinkConfiguration in K8s</li>
+<li>Architecture of EMR on EKS</li>
+<li>Flink Kubernetes Operator</li>
+<li>Operator Chains</li>
+</ul>
+</li>
+</ul>
+<h2 id="Cloud-Native-Flink-Development-Platform-Dinky"><a href="#Cloud-Native-Flink-Development-Platform-Dinky" class="headerlink" title="Cloud-Native Flink Development Platform - Dinky"></a>Cloud-Native Flink Development Platform - Dinky</h2><p>To facilitate developers in SQL-based development, Dinky, a lightweight Flink development platform came up.</p>
 <h3 id="TODO"><a href="#TODO" class="headerlink" title="TODO"></a>TODO</h3><h4 id="Emergency"><a href="#Emergency" class="headerlink" title="Emergency"></a>Emergency</h4><ul>
 <li>Refactor Dinky dinky-gateway module to apply AWS EKS using fabric8 kubernetes client.</li>
 </ul>
@@ -51,4 +78,4 @@
 <li><a href="https://adooobe.github.io/2024/12/05/flink-kubernetes-operator/">https://adooobe.github.io/2024/12/05/flink-kubernetes-operator/</a></li>
 <li><a target="_blank" rel="noopener" href="https://dinky.org.cn/docs/next/user_guide/studio/environment_config#kubernetes-operator-执行模式">https://dinky.org.cn/docs/next/user_guide/studio/environment_config#kubernetes-operator-执行模式</a></li>
 </ol>
-</div></article></div></main><footer><div class="paginator"><a href="/2024/12/05/flink-kubernetes-operator/" class="next">NEXT</a></div><div class="copyright"><p>I've had a lot of worries in my life, most of which never happened :)</p><p>© 2023 - 2024 <a href="https://Adooobe.github.io">Finch Xia</a>, powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/pinggod/hexo-theme-apollo" target="_blank">hexo-theme-apollo</a>.</p></div></footer></div><script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" integrity="sha384-crwIf/BuaWM9rM65iM+dWFldgQ1Un8jWZMuh3puxb8TOY9+linwLoI7ZHZT+aekW" crossorigin="anonymous"></script></body></html>
+</div></article></div></main><footer><div class="paginator"><a href="/2024/12/13/iceberg-concepts/" class="prev">PREV</a><a href="/2024/12/05/flink-kubernetes-operator/" class="next">NEXT</a></div><div class="copyright"><p>I've had a lot of worries in my life, most of which never happened :)</p><p>© 2023 - 2024 <a href="https://Adooobe.github.io">Finch Xia</a>, powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/pinggod/hexo-theme-apollo" target="_blank">hexo-theme-apollo</a>.</p></div></footer></div><script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" integrity="sha384-crwIf/BuaWM9rM65iM+dWFldgQ1Un8jWZMuh3puxb8TOY9+linwLoI7ZHZT+aekW" crossorigin="anonymous"></script></body></html>

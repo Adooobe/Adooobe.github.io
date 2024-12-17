@@ -1,4 +1,5 @@
 https://adooobe.github.io/2024/12/05/cloud-native-flink/
+https://adooobe.github.io/2024/12/13/iceberg-concepts/
 https://adooobe.github.io/2024/09/21/bitcask/
 https://adooobe.github.io/2024/12/05/flink-kubernetes-operator/
 https://adooobe.github.io/2024/05/14/weekly-summary/
@@ -32,3 +33,4 @@ https://adooobe.github.io/tags/Consensus-Raft-Kafka/
 https://adooobe.github.io/tags/summary/
 https://adooobe.github.io/tags/snowflake-flink-connector/
 https://adooobe.github.io/tags/nom/
+https://adooobe.github.io/tags/Flink-cloud-native-Kubernetes-Yarn/
