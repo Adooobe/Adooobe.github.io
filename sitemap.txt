@@ -1,3 +1,4 @@
+https://adooobe.github.io/2024/12/23/snowflake-iceberg-catalogs/
 https://adooobe.github.io/2024/12/05/cloud-native-flink/
 https://adooobe.github.io/2024/12/13/iceberg-concepts/
 https://adooobe.github.io/2024/09/21/bitcask/
