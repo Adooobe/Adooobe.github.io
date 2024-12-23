@@ -129,3 +129,91 @@ be myself, be better.
 ### Study
 
 * How query engine Workes
+
+## 2024-07-15 ～ 2024-07-19
+
+### Goals
+
+1. work hard to be confident
+
+### Work
+
+* Add *Buffer Count* or *Buffer Size* limitation for flink snowflake sink connector
+* Support Flink SQL for flink snowflake sink connector
+* Run a Flink Jar/Flink SQL task to estimate the perfermance & cost
+
+### Study
+
+* be not sure if any time reserved
+
+## 2024-07-22 ～ 2024-07-26
+
+### Goals
+
+LOSE WGIGHT❕❕❕
+
+### Work
+
+* Flink Sink Snowflake Connector (First Version)
+* ods upgrade
+
+### Study
+
+* Databend Source Code
+
+## 2024-07-29 ～ 2024-08-02
+
+### Goals
+
+LOSE WGIGHT❕❕❕
+
+### Work
+
+* Flink Sink Snowflake Connector Stress Test
+* ods upgrade
+
+### Study
+
+* Databend Source Code
+
+## 2024-08-05 ～ 2024-08-09
+
+### Goals
+
+1. Be Happy
+
+### Work
+
+* FPGrowth Algorithm https://github.com/luanshiyinyang/MachineLearning/blob/master/关联分析/FP-Growth算法/README.md
+* LSM Tree Compaction(Level) 关联databend：如何选择Block块，Block在merge的时候事务冲突如何解决 test_recluster_mutator_block_select/test_safety_for_recluster
+
+### Study
+
+* Databend Source Code
+
+## 2024-08-12 ～ 2024-08-17
+
+### Goals
+
+1. Be Happy
+
+### Work
+
+* Kafka SDK
+
+### Study
+
+* Databend Source Code
+* Range Shuffle & Distributed Sort Merge
+
+## 2024-09-30 ~ 2024-10-06
+
+### Study
+
+1. Bitcask
+2. Databend try_to_int PR
+3. StarRocks Study
+4. Raft - Log Replication
+5. MPP - Shuffle
+6. Arrow - Why Arrow
+7. 

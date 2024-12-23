@@ -1,6 +1,7 @@
 title: z-order
 date: 2023-10-19 13:33:09
 tags: big data, index
+top: 1
 ---------------------
 
 ## What is Z-order & Why Z-order

@@ -1,7 +1,8 @@
 ---
 title: rust-nom
 date: 2024-04-26 15:24:19
-tags:
+top: 4
+tags: nom
 ---
 ## the First time of nom
 

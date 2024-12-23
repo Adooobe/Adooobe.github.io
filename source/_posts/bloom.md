@@ -2,6 +2,7 @@
 title: Bloom Filter Implementation and Optimization
 date: 2023-10-02 19:11:52
 tags: Bloom-Filter
+top: 1
 mathjax: true
 ---
 # Bloom Filter

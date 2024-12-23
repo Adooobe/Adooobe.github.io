@@ -1,6 +1,7 @@
 title: raft
 date: 2024-04-22 08:35:07
 tags: Consensus, Raft, Kafka
+top: 1
 ----------------------------
 
 ## Main Concepts
