@@ -20,7 +20,7 @@
   </url>
   
   <url>
-    <loc>https://adooobe.github.io/2024/04/22/raft/</loc>
+    <loc>https://adooobe.github.io/2024/04/26/rust-nom/</loc>
     
     <lastmod>2024-12-23</lastmod>
     
@@ -29,7 +29,25 @@
   </url>
   
   <url>
-    <loc>https://adooobe.github.io/2024/04/26/rust-nom/</loc>
+    <loc>https://adooobe.github.io/2024/08/12/shuffle-all-in-one/</loc>
+    
+    <lastmod>2024-12-23</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://adooobe.github.io/2024/12/23/snowflake-iceberg-catalogs/</loc>
+    
+    <lastmod>2024-12-23</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://adooobe.github.io/2024/04/22/raft/</loc>
     
     <lastmod>2024-12-23</lastmod>
     
@@ -56,7 +74,52 @@
   </url>
   
   <url>
+    <loc>https://adooobe.github.io/2024/12/13/iceberg-concepts/</loc>
+    
+    <lastmod>2024-12-23</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://adooobe.github.io/2024/12/05/flink-kubernetes-operator/</loc>
+    
+    <lastmod>2024-12-23</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://adooobe.github.io/2024/07/24/flink-snowflake-connector/</loc>
+    
+    <lastmod>2024-12-23</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://adooobe.github.io/2024/12/05/cloud-native-flink/</loc>
+    
+    <lastmod>2024-12-23</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://adooobe.github.io/2023/10/02/bloom/</loc>
+    
+    <lastmod>2024-12-23</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://adooobe.github.io/2024/09/21/bitcask/</loc>
     
     <lastmod>2024-12-23</lastmod>
     
@@ -217,6 +280,20 @@
   
   <url>
     <loc>https://adooobe.github.io/tags/summary/</loc>
+    <lastmod>2024-12-23</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://adooobe.github.io/tags/Flink-cloud-native-Kubernetes-Yarn/</loc>
+    <lastmod>2024-12-23</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://adooobe.github.io/tags/snowflake-flink-connector/</loc>
     <lastmod>2024-12-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
