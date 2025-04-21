@@ -1,0 +1,103 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><title> My Whimsical Musings on Data Warehouse Selection · Finch's Blog</title><meta name="description" content="My Whimsical Musings on Data Warehouse Selection - Finch Xia"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="icon" href="/favicon.png"><link rel="stylesheet" href="/css/apollo.css"><link rel="search" type="application/opensearchdescription+xml" href="https://Adooobe.github.io/atom.xml" title="Finch's Blog"><meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="Finch's Blog" type="application/atom+xml">
+</head><body><div class="wrap"><header><a href="/" class="logo-link"><img src="/favicon.png" alt="logo"></a><ul class="nav nav-list"><li class="nav-list-item"><a href="/" target="_self" class="nav-list-link">BLOG</a></li><li class="nav-list-item"><a href="/archives/" target="_self" class="nav-list-link">ARCHIVE</a></li><li class="nav-list-item"><a href="https://github.com/Adooobe" target="_blank" class="nav-list-link">GITHUB</a></li></ul></header><main class="container"><div class="post"><article class="post-block"><h1 class="post-title">My Whimsical Musings on Data Warehouse Selection</h1><div class="post-info">Apr 16, 2025</div><div class="post-content"><h2 id="Murmur"><a href="#Murmur" class="headerlink" title="Murmur"></a>Murmur</h2><p>I received a new and challenging task about data warehosue selection which is giving me a headache. From one official website to another, I try to balance the platform products cost and performance but I can’t. I truly dislike the vendor which using the opensource component but named another one. Finally, I gave up chooosing all-in-one data warehouse and turn to pick up the component for different part of data warehouse, such as storage, compute and scheduler.</p>
+<p>So, the following picture was born.</p>
+<p><img src="/2025/04/16/dw-selection/best-practices.png#pic_center" alt="best-practices"></p>
+<h2 id="Whimsical-Musings"><a href="#Whimsical-Musings" class="headerlink" title="Whimsical Musings"></a>Whimsical Musings</h2><p>Because of the less experiences of different products and component, a whimsical musing came up to my brain. Why not comparing the components with the most popular one?</p>
+<h3 id="Storage"><a href="#Storage" class="headerlink" title="Storage"></a>Storage</h3><p>In our senarios, we need to process and utilize structured, semi-structured and unstructured data consistently. Besides, it’s a big question that different data storing in different products like Swowflake/Databend/SelectDB (finally in different S3 bucket of different AWS account). So, an open data format, datalake is the best practice in mhhy opinion.</p>
+<p>Ok, the next one is, which datalake format is the most capatible？ the most popular one is Apache Iceberg.</p>
+<h4 id="Iceberg"><a href="#Iceberg" class="headerlink" title="Iceberg"></a>Iceberg</h4><p>Apache Iceberg, originally developed by Netflix, is a high-performance table format designed to manage data at a petabyte scale. It provides a table format for large analytic datasets on distributed storage and supports high-throughput reads and writes, efficient partitioning, and schema evolution. It is commonly used with big data tools such as Apache Spark, Trino, and Presto.</p>
+<ul>
+<li>well-established catalog management</li>
+<li>batch-based analytics optimization</li>
+<li>good practices by global companys</li>
+<li>compliance/auditing-friendly</li>
+</ul>
+<h4 id="Hudi"><a href="#Hudi" class="headerlink" title="Hudi"></a>Hudi</h4><p>Optimized for real-time data ingestion and incremental processing, Hudi excels in scenarios requiring upserts and deletes</p>
+<ul>
+<li>support incremental processing (CDC)</li>
+<li>Offers Copy-on-Write (COW) and Merge-on-Read (MOR) for flexibility.</li>
+<li>Primarily integrates with Apache Spark and Flink</li>
+</ul>
+<h4 id="Paimon"><a href="#Paimon" class="headerlink" title="Paimon"></a>Paimon</h4><p>Apache Paimon is a relatively new project designed to enable real-time, continuous data ingestion into data lakes while providing a reliable table format with transactional consistency. It supports both streaming and batch operations natively and is primarily optimized for stream processing systems like Apache Flink.</p>
+<ul>
+<li>streaming-first optimization</li>
+<li>Best with Flink, also work with Spark</li>
+</ul>
+<h4 id="Delta-lake"><a href="#Delta-lake" class="headerlink" title="Delta lake"></a>Delta lake</h4><p>I am not sure that we should take delta into consideration. Why not using Databricks?</p>
+<p><img src="/2025/04/16/dw-selection/datalake.png#pic_center" alt="datalake-summary"></p>
+<h3 id="Batch-First-Computing-Engine"><a href="#Batch-First-Computing-Engine" class="headerlink" title="Batch-First Computing Engine"></a>Batch-First Computing Engine</h3><div class="table-container">
+<table>
+<thead>
+<tr>
+<th>Engine</th>
+<th>Strengths</th>
+<th>Weaknesses</th>
+<th>Best For</th>
+<th>Recommendation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Apache Spark</td>
+<td>- Powerful distributed computing capabilities<br>- Supports multiple programming languages (Scala, Python, Java, R)<br>- Rich ecosystem (Spark SQL, MLlib, GraphX, Spark Streaming)<br>- In-memory computing for faster processing</td>
+<td>- Steeper learning curve, especially for non-technical users<br>- High memory consumption, requires proper configuration<br>- May not be as efficient for small-scale data processing</td>
+<td>- Large-scale data processing and analytics<br>- Real-time stream processing<br>- Machine learning and big data applications</td>
+<td>★★★★☆</td>
+</tr>
+<tr>
+<td>Snowflake</td>
+<td>- Highly optimized for cloud environments.<br>- Scalable and elastic performance.<br>- Strong separation of storage and compute.<br>- Easy to use with seamless integration.</td>
+<td>- Can be expensive at scale depending on workloads.<br>- Limited native machine learning support.</td>
+<td>- Data warehousing and analytics.<br>- Organizations requiring high performance and scalability.</td>
+<td>★★★★★</td>
+</tr>
+<tr>
+<td>Databricks</td>
+<td>- Strong support for Apache Spark.<br>- Integrated machine learning environment.<br>- Collaborative notebooks for data science teams.</td>
+<td>- Costs can accumulate with extensive use.<br>- Learning curve for non-Spark users.</td>
+<td>- Big data processing and machine learning.<br>- Teams focused on large-scale data engineering.</td>
+<td>★★★★☆</td>
+</tr>
+<tr>
+<td>Databend</td>
+<td>- Optimized for cloud environments.<br>- Strong and real-time support.<br>- Make every effort to improve usability.</td>
+<td>- Need to improve the capabilities of processing Data lake table format.</td>
+<td>- Snowflake users.<br>- Deployments requiring hybrid cloud infrastructure.</td>
+<td>★★★★☆</td>
+</tr>
+<tr>
+<td>Cloudera</td>
+<td>- Extensive suite for big data processing and analytics.<br>- Strong security and compliance features.<br>- Hybrid and multi-cloud capabilities.</td>
+<td>- Can be complex to set up and manage.<br>- Requires expertise to fully leverage capabilities.</td>
+<td>- Large enterprises with complex data needs.<br>- Deployments requiring hybrid cloud infrastructure.</td>
+<td>★★★☆☆</td>
+</tr>
+<tr>
+<td>Redshift</td>
+<td>- Fully managed and optimized for data warehousing.<br>- Tight integration with other AWS services.<br>- Scalable and cost-effective for OLAP workloads.</td>
+<td>- Complex pricing model can increase costs.<br>- Potential performance issues with variable workloads.</td>
+<td>- Data warehousing and ETL.<br>- Companies already invested in the AWS ecosystem.</td>
+<td>★★★★☆</td>
+</tr>
+<tr>
+<td>Dremio</td>
+<td>- Offers a unified data lake engine.<br>- Supports SQL queries on various data formats.<br>- Provides high-performance query acceleration.</td>
+<td>- May require additional integrations for certain use cases.<br>- Not as widely adopted as some competitors.</td>
+<td>- Analytics on data lakes.<br>- Simple data transform.<br>- Query acceleration for disparate data sources.</td>
+<td>★★★☆☆</td>
+</tr>
+<tr>
+<td>Athena</td>
+<td>- Serverless with no infra to manage.<br>- Directly queries data stored in Amazon S3.<br>- Integrates well with AWS ecosystem.</td>
+<td>- Charges based on data scanned, which can increase costs.</td>
+<td>- Simple large-scale querying on S3 data.<br>- Flexible SQL-based analytics without infrastructure management.</td>
+<td>★★★★☆</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h3 id="Selection-Path"><a href="#Selection-Path" class="headerlink" title="Selection Path"></a>Selection Path</h3><p><img src="/2025/04/16/dw-selection/path.png#pic_center" alt="selection-path"></p>
+<h2 id="Appendix"><a href="#Appendix" class="headerlink" title="Appendix"></a>Appendix</h2><ol>
+<li><a target="_blank" rel="noopener" href="https://olake.io/iceberg/paimon-vs-iceberg#9-which-should-you-choose">https://olake.io/iceberg/paimon-vs-iceberg#9-which-should-you-choose</a></li>
+</ol>
+</div></article></div></main><footer><div class="paginator"><a href="/2025/03/31/flink-k8s-operator/" class="next">NEXT</a></div><div class="copyright"><p>I've had a lot of worries in my life, most of which never happened :)</p><p>© 2023 - 2025 <a href="https://Adooobe.github.io">Finch Xia</a>, powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/pinggod/hexo-theme-apollo" target="_blank">hexo-theme-apollo</a>.</p></div></footer></div><script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" integrity="sha384-crwIf/BuaWM9rM65iM+dWFldgQ1Un8jWZMuh3puxb8TOY9+linwLoI7ZHZT+aekW" crossorigin="anonymous"></script></body></html>

@@ -1,3 +1,5 @@
+https://adooobe.github.io/2025/04/16/dw-selection/
+https://adooobe.github.io/2025/03/31/flink-k8s-operator/
 https://adooobe.github.io/2024/08/12/shuffle-all-in-one/
 https://adooobe.github.io/2024/12/31/2024-summary/
 https://adooobe.github.io/2023/10/08/apache-arrow/
@@ -34,3 +36,4 @@ https://adooobe.github.io/tags/summary/
 https://adooobe.github.io/tags/snowflake-flink-connector/
 https://adooobe.github.io/tags/nom/
 https://adooobe.github.io/tags/Flink-cloud-native-Kubernetes-Yarn/
+https://adooobe.github.io/tags/datawarehouse/

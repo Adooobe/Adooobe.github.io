@@ -1,0 +1,70 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><title> flink-k8s-operator · Finch's Blog</title><meta name="description" content="flink-k8s-operator - Finch Xia"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="icon" href="/favicon.png"><link rel="stylesheet" href="/css/apollo.css"><link rel="search" type="application/opensearchdescription+xml" href="https://Adooobe.github.io/atom.xml" title="Finch's Blog"><meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="Finch's Blog" type="application/atom+xml">
+</head><body><div class="wrap"><header><a href="/" class="logo-link"><img src="/favicon.png" alt="logo"></a><ul class="nav nav-list"><li class="nav-list-item"><a href="/" target="_self" class="nav-list-link">BLOG</a></li><li class="nav-list-item"><a href="/archives/" target="_self" class="nav-list-link">ARCHIVE</a></li><li class="nav-list-item"><a href="https://github.com/Adooobe" target="_blank" class="nav-list-link">GITHUB</a></li></ul></header><main class="container"><div class="post"><article class="post-block"><h1 class="post-title">flink-k8s-operator</h1><div class="post-info">Mar 31, 2025</div><div class="post-content"><h2 id="Background"><a href="#Background" class="headerlink" title="Background"></a>Background</h2><p>Recently, I’m taking almost all efforts on Cloud-Native Flink with AWS infra like Elastic Kubernetes Service(EKS), Elastic MapReduce(EMR) on EKS. I’ve run though about 80% of the task types in the test cluster so far (Of course I must have to thank the Ops and AWS Team for their help. Without them, many problems could not have been solved). Today, I wanna share everything I know about how to delpoy and run Flink Job on AWS EKS with you.</p>
+<p>I’m not a professional cloud-native infra engineer so I’ll just talk about what we do to deploy Flink Job on Kubernetes as follows:</p>
+<ol>
+<li>Determine the job type</li>
+<li>Manage the job lifecycles</li>
+<li>Manage the job resources</li>
+<li>The pitfalls you may need to take care</li>
+</ol>
+<h2 id="Determine-the-deployment"><a href="#Determine-the-deployment" class="headerlink" title="Determine the deployment"></a>Determine the deployment</h2><p><strong>1. Deployment Methods: Flink Kubernetes Operator vs. Native Kubernetes Integration</strong></p>
+<ul>
+<li><p><strong>Flink Kubernetes Operator</strong>: This operator acts as a control plane, automating the deployment, management, and scaling of Flink applications on Kubernetes. It encapsulates the expertise of a human operator, handling tasks such as job submission, upgrades, and failure recovery.</p>
+<ul>
+<li><strong>Automated Lifecycle Management</strong>: Manages the complete deployment lifecycle of Flink applications.</li>
+<li><strong>Monitoring and Metrics Integration</strong>: Provides full logging and metrics integration for better observability.</li>
+</ul>
+<p>By leveraging the Flink Kubernetes Operator, you can achieve a more Kubernetes-native experience, benefiting from enhanced automation and integration features.</p>
+</li>
+<li><p><strong>Native Kubernetes Integration</strong>: Flink’s native integration allows you to deploy Flink clusters directly onto Kubernetes without additional layers.</p>
+<ul>
+<li><strong>More Flexible Resource Management</strong>: Flink communicates directly with Kubernetes to allocate and deallocate resources as needed. It means Native Kubernetes Integration is able to provide more flexible resource and communication management within the pod, for example, the request and limit of vCores.</li>
+<li><strong>Manual Operations</strong>: Deployment, scaling, and recovery processes require manual intervention or custom automation scripts.</li>
+</ul>
+<p>While this method offers more control, it demands a deeper understanding of both Flink and Kubernetes operations.</p>
+</li>
+</ul>
+<ol>
+<li><strong>Deployment Modes: Session vs. Application</strong></li>
+</ol>
+<ul>
+<li><p><strong>Session Mode</strong>: In this mode, a long-running Flink cluster is deployed, capable of executing multiple jobs.</p>
+<ul>
+<li><strong>Resource Sharing</strong>: Multiple jobs share the same cluster resources, which can lead to resource contention.</li>
+<li><strong>Quick Job Submission</strong>: Since the cluster is already running, jobs can be submitted and start executing quickly.</li>
+<li><strong>Potential Isolation Issues</strong>: A misbehaving job can impact other jobs running on the same cluster due to shared resources.</li>
+</ul>
+<p>Session mode is suitable for development, testing, or scenarios where quick job turnaround is prioritized over strict resource isolation.</p>
+</li>
+<li><p><strong>Application Mode</strong>: Each job runs in its dedicated Flink cluster, with the cluster’s lifecycle tied to the job’s duration.</p>
+<ul>
+<li><strong>Resource Isolation</strong>: Each job has its own set of resources, ensuring that one job’s behavior doesn’t affect others. However, it also brings higher requirements for job-level resource monitoring and management.</li>
+<li><strong>Enhanced Stability</strong>: Failures are contained within the individual job’s cluster, reducing the risk of cascading issues.</li>
+<li><strong>Higher Resource Overhead</strong>: Spinning up separate clusters for each job can lead to increased resource consumption and longer startup times.</li>
+</ul>
+</li>
+</ul>
+<h2 id="Manage-the-job-lifycycles"><a href="#Manage-the-job-lifycycles" class="headerlink" title="Manage the job lifycycles"></a>Manage the job lifycycles</h2><p>To minimize the cost of job lifycycle management, we finally choose the Flink Kubernetes Operator and Dinky<sup>[2]</sup> to manage Flink Job (I still want to complain, these two are obviously not a good match)<br><img src="/2025/03/31/flink-k8s-operator/flink-operator-status-workflow.png#pic_center" alt="Operator Workflow"></p>
+<p>However, currently we deploy jobs using Dinky, which do not follow the operator job lifecycle management. Everytime we submit a task (Flink Job is seen as a task instance), it would delete the old flinkdeployment and upload a new one. Luckily, jobs are streaming and stable in our production so we took our eyes on task recovery rather than job status because it is always RUNNING.</p>
+<h2 id="Manage-the-job-resources"><a href="#Manage-the-job-resources" class="headerlink" title="Manage the job resources"></a>Manage the job resources</h2><p>In our plan, resources are devided into three catalogories:</p>
+<ol>
+<li>User Defined Functions(UDFs)</li>
+</ol>
+<p>Usually, we consider UDFs as Dynamic User Code to load using <code>add jar</code> statement. Unluckily, we stepped into a pit you would see at the next section. So the same method as the connector are used to handle UDFs. Of course, this is not an elegant approach, which can lead to operational difficulties or other unforeseen problems, so we are also considering using initContainer to optimize it</p>
+<ol>
+<li>Flink Source/Sink Connectors, Catalog</li>
+</ol>
+<p>The part of connectors are considered as solid or rarely changed. So we could put them into <code>flink/lib</code> which includes basic flink runtime dependencies.</p>
+<ol>
+<li>Plugins</li>
+</ol>
+<p>Most of our current plugins are related to file systems and metrics and AWS provides sound plugin and management.</p>
+<h2 id="The-pitfalls-you-may-need-to-take-care"><a href="#The-pitfalls-you-may-need-to-take-care" class="headerlink" title="The pitfalls you may need to take care"></a>The pitfalls you may need to take care</h2><p>1.</p>
+<ol>
+<li>Another problem we encounterd was about resource release. We sometimes would regularly run several Flink batch job.</li>
+</ol>
+<h2 id="Appendix"><a href="#Appendix" class="headerlink" title="Appendix"></a>Appendix</h2><ol>
+<li><a href="https://adooobe.github.io/2024/12/05/flink-kubernetes-operator/">https://adooobe.github.io/2024/12/05/flink-kubernetes-operator/</a></li>
+<li><a target="_blank" rel="noopener" href="https://dinky.org.cn/docs/next/user_guide/studio/environment_config#kubernetes-operator-执行模式">https://dinky.org.cn/docs/next/user_guide/studio/environment_config#kubernetes-operator-执行模式</a><br>3.</li>
+</ol>
+</div></article></div></main><footer><div class="paginator"><a href="/2025/04/16/dw-selection/" class="prev">PREV</a><a href="/2024/12/31/2024-summary/" class="next">NEXT</a></div><div class="copyright"><p>I've had a lot of worries in my life, most of which never happened :)</p><p>© 2023 - 2025 <a href="https://Adooobe.github.io">Finch Xia</a>, powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/pinggod/hexo-theme-apollo" target="_blank">hexo-theme-apollo</a>.</p></div></footer></div><script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" integrity="sha384-crwIf/BuaWM9rM65iM+dWFldgQ1Un8jWZMuh3puxb8TOY9+linwLoI7ZHZT+aekW" crossorigin="anonymous"></script></body></html>

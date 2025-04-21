@@ -2,6 +2,24 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://adooobe.github.io/2025/04/16/dw-selection/</loc>
+    
+    <lastmod>2025-04-21</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://adooobe.github.io/2025/03/31/flink-k8s-operator/</loc>
+    
+    <lastmod>2025-04-16</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://adooobe.github.io/2024/08/12/shuffle-all-in-one/</loc>
     
     <lastmod>2025-01-11</lastmod>
@@ -193,7 +211,7 @@
 
   <url>
     <loc>https://adooobe.github.io/</loc>
-    <lastmod>2025-02-06</lastmod>
+    <lastmod>2025-04-21</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -201,98 +219,105 @@
   
   <url>
     <loc>https://adooobe.github.io/tags/bigdata/</loc>
-    <lastmod>2025-02-06</lastmod>
+    <lastmod>2025-04-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://adooobe.github.io/tags/Bloom-Filter/</loc>
-    <lastmod>2025-02-06</lastmod>
+    <lastmod>2025-04-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://adooobe.github.io/tags/LSM-Storage/</loc>
-    <lastmod>2025-02-06</lastmod>
+    <lastmod>2025-04-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://adooobe.github.io/tags/big-data-index/</loc>
-    <lastmod>2025-02-06</lastmod>
+    <lastmod>2025-04-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://adooobe.github.io/tags/stream-cdc-snowflake/</loc>
-    <lastmod>2025-02-06</lastmod>
+    <lastmod>2025-04-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://adooobe.github.io/tags/cdc-mysql-binlog/</loc>
-    <lastmod>2025-02-06</lastmod>
+    <lastmod>2025-04-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://adooobe.github.io/tags/sqlparser-TDOP/</loc>
-    <lastmod>2025-02-06</lastmod>
+    <lastmod>2025-04-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://adooobe.github.io/tags/MergeSort/</loc>
-    <lastmod>2025-02-06</lastmod>
+    <lastmod>2025-04-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://adooobe.github.io/tags/databend-query-execution/</loc>
-    <lastmod>2025-02-06</lastmod>
+    <lastmod>2025-04-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://adooobe.github.io/tags/Consensus-Raft-Kafka/</loc>
-    <lastmod>2025-02-06</lastmod>
+    <lastmod>2025-04-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://adooobe.github.io/tags/summary/</loc>
-    <lastmod>2025-02-06</lastmod>
+    <lastmod>2025-04-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://adooobe.github.io/tags/snowflake-flink-connector/</loc>
-    <lastmod>2025-02-06</lastmod>
+    <lastmod>2025-04-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://adooobe.github.io/tags/nom/</loc>
-    <lastmod>2025-02-06</lastmod>
+    <lastmod>2025-04-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://adooobe.github.io/tags/Flink-cloud-native-Kubernetes-Yarn/</loc>
-    <lastmod>2025-02-06</lastmod>
+    <lastmod>2025-04-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://adooobe.github.io/tags/datawarehouse/</loc>
+    <lastmod>2025-04-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
