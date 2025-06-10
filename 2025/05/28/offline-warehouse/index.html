@@ -1,0 +1,64 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><title> offline-warehouse · Finchirp</title><meta name="description" content="offline-warehouse - Finch Xia"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="icon" href="/favicon.png"><link rel="stylesheet" href="/css/apollo.css"><link rel="search" type="application/opensearchdescription+xml" href="https://Adooobe.github.io/atom.xml" title="Finchirp"><meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="Finchirp" type="application/atom+xml">
+</head><body><div class="wrap"><header><a href="/" class="logo-link"><img src="/favicon.png" alt="logo"></a><ul class="nav nav-list"><li class="nav-list-item"><a href="/" target="_self" class="nav-list-link">BLOG</a></li><li class="nav-list-item"><a href="/archives/" target="_self" class="nav-list-link">ARCHIVE</a></li><li class="nav-list-item"><a href="https://github.com/Adooobe" target="_blank" class="nav-list-link">GITHUB</a></li></ul></header><main class="container"><div class="post"><article class="post-block"><h1 class="post-title">offline-warehouse</h1><div class="post-info">May 28, 2025</div><div class="post-content"><h2 id="Murmur"><a href="#Murmur" class="headerlink" title="Murmur"></a>Murmur</h2><p>I found some interesting <a target="_blank" rel="noopener" href="https://medium.com/@paul.needleman/databricks-vs-optimized-snowflake-by-the-numbers-e980382e04c6">articles</a> aruging cost and performance between Snowflake and Databricks. The more interesting is under the comments,</p>
+<ol>
+<li><a target="_blank" rel="noopener" href="https://medium.com/@saravanan.aryan/snowflake-vs-iceberg-a-performance-showdown-on-a-billion-row-dataset-ae3571f0d02b">https://medium.com/@saravanan.aryan/snowflake-vs-iceberg-a-performance-showdown-on-a-billion-row-dataset-ae3571f0d02b</a><br><img src="/2025/05/28/offline-warehouse/interesting_comment.png#pic_center" alt="comment"></li>
+</ol>
+<p>Back to our main topic, Is Databricks better and cheapper than Snowflake? Actually, as a Snowflake user of enterprise and standard version, I totally agree the comments under the decisive one that Snowflake is more convinient for most of users who are not able to proficient in BigData Storage &amp; Computing Engine rather than providing more flexiable capabilities like Databricks. However, on the other hand, we have not determined building LakeHouse (or traditional DataWarehouse) based on Snowflake or Databricks yet.</p>
+<h2 id="Alternatives"><a href="#Alternatives" class="headerlink" title="Alternatives"></a>Alternatives</h2><ul>
+<li>Snowflake credit: 8c/64g &lt;=&gt; 1 credits</li>
+<li>DBU: 8c/32g &lt;=&gt; 1 DBU</li>
+</ul>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>Architecture Combination</th>
+<th>Cost (Storage + Compute)</th>
+<th>ETL/Query Performance (Complex SQL, Joins)</th>
+<th>Flink Integration (Ingestion to ODS/DWD)</th>
+<th>Streaming Capability (Latency, E2E)</th>
+<th>Maintainability &amp; Maturity</th>
+<th>Openness &amp; Vendor Lock-in</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Snowflake + Native Table</strong></td>
+<td>💰💰💰 (Storage: $40+/TB/mo, Compute: $2/credit avg)</td>
+<td>⭐⭐⭐⭐ (Up to billions of rows Join in &lt;10 min)</td>
+<td>⭐⭐⭐ (Via Snowpipe only; Flink → Snowpipe Streaming)</td>
+<td>⏱️ ~5 sec latency(micro-batching)</td>
+<td>✅ Fully managed, minimal tuning</td>
+<td>❌ Closed format, Snowflake only</td>
+</tr>
+<tr>
+<td><strong>Snowflake + Iceberg</strong></td>
+<td>💰💰💰 (Storage: ~$25/TB on S3, Compute: $2/credit avg)</td>
+<td>⭐⭐⭐ (50%~500% slower than native table format)</td>
+<td>⭐⭐⭐ (Flink → Iceberg write; Snowflake external read)</td>
+<td>⏱️ ~2-10 min latency (depends on Flink)</td>
+<td>⚠️ Metadata &amp; partition tuning needed</td>
+<td>✅ Open format (Apache Iceberg)</td>
+</tr>
+<tr>
+<td><strong>Databricks + Iceberg</strong></td>
+<td>💰💰 (Storage: ~$25/TB on S3, Compute: $0.55/DBU avg)</td>
+<td>⭐⭐⭐ (Optimized read, 10B+ rows in ~10 min)</td>
+<td>⭐⭐⭐⭐ (Flink native write; Spark read/write; cross-engine)</td>
+<td>⏱️ ~1-5 min latency (structured streaming)</td>
+<td>⚠️ Requires catalog setup &amp; tuning</td>
+<td>✅ Open format (cross-platform)</td>
+</tr>
+<tr>
+<td><strong>Databricks + Delta</strong></td>
+<td>💰💰 (Storage: ~$25/TB on S3, Compute: $0.55/DBU avg)</td>
+<td>⭐⭐⭐⭐⭐ (Best-in-class Spark optimization: Z-order, caching)</td>
+<td>⭐⭐⭐⭐ (Native Delta Sink in Flink; Spark streaming support)</td>
+<td>⏱️ ~1-3 min latency (streaming or trigger)</td>
+<td>✅ Mature, production ready</td>
+<td>⚠️ Open spec, but Databricks-led</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2></div></article></div></main><footer><div class="paginator"><a href="/2025/06/02/exile/" class="prev">PREV</a><a href="/2025/05/22/flink-rs/" class="next">NEXT</a></div><div class="copyright"><p>I've had a lot of worries in my life, most of which never happened :)</p><p>© 2023 - 2025 <a href="https://Adooobe.github.io">Finch Xia</a>, powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/pinggod/hexo-theme-apollo" target="_blank">hexo-theme-apollo</a>.</p></div></footer></div><script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" integrity="sha384-crwIf/BuaWM9rM65iM+dWFldgQ1Un8jWZMuh3puxb8TOY9+linwLoI7ZHZT+aekW" crossorigin="anonymous"></script></body></html>

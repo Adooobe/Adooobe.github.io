@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>Finch&#39;s Blog</title>
+  <title>Finchirp</title>
   
   
   <link href="https://adooobe.github.io/atom.xml" rel="self"/>
   
   <link href="https://adooobe.github.io/"/>
-  <updated>2025-04-21T07:28:09.946Z</updated>
+  <updated>2025-06-01T18:21:36.811Z</updated>
   <id>https://adooobe.github.io/</id>
   
   <author>
@@ -15,6 +15,68 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>exile</title>
+    <link href="https://adooobe.github.io/2025/06/02/exile/"/>
+    <id>https://adooobe.github.io/2025/06/02/exile/</id>
+    <published>2025-06-01T18:20:47.000Z</published>
+    <updated>2025-06-01T18:21:36.811Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="/assets/js/Meting.min.js"></script><p>爱和逃避</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;/assets/css/APlayer.min.css&quot;&gt;&lt;script src=&quot;/assets/js/APlayer.min.js&quot; cla</summary>
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>offline-warehouse</title>
+    <link href="https://adooobe.github.io/2025/05/28/offline-warehouse/"/>
+    <id>https://adooobe.github.io/2025/05/28/offline-warehouse/</id>
+    <published>2025-05-28T02:31:34.000Z</published>
+    <updated>2025-06-06T01:35:30.826Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="/assets/js/Meting.min.js"></script><h2 id="Murmur"><a href="#Murmur" class="headerlink" title="Murmur"></a>Murmur</h2><p>I found some interesting <a href="https://medium.com/@paul.needleman/databricks-vs-optimized-snowflake-by-the-numbers-e980382e04c6">articles</a> aruging cost and performance between Snowflake and Databricks. The more interesting is under the comments,</p><ol><li><a href="https://medium.com/@saravanan.aryan/snowflake-vs-iceberg-a-performance-showdown-on-a-billion-row-dataset-ae3571f0d02b">https://medium.com/@saravanan.aryan/snowflake-vs-iceberg-a-performance-showdown-on-a-billion-row-dataset-ae3571f0d02b</a><br><img src="/2025/05/28/offline-warehouse/interesting_comment.png#pic_center" alt="comment"></li></ol><p>Back to our main topic, Is Databricks better and cheapper than Snowflake? Actually, as a Snowflake user of enterprise and standard version, I totally agree the comments under the decisive one that Snowflake is more convinient for most of users who are not able to proficient in BigData Storage &amp; Computing Engine rather than providing more flexiable capabilities like Databricks. However, on the other hand, we have not determined building LakeHouse (or traditional DataWarehouse) based on Snowflake or Databricks yet.</p><h2 id="Alternatives"><a href="#Alternatives" class="headerlink" title="Alternatives"></a>Alternatives</h2><ul><li>Snowflake credit: 8c/64g &lt;=&gt; 1 credits</li><li>DBU: 8c/32g &lt;=&gt; 1 DBU</li></ul><div class="table-container"><table><thead><tr><th>Architecture Combination</th><th>Cost (Storage + Compute)</th><th>ETL/Query Performance (Complex SQL, Joins)</th><th>Flink Integration (Ingestion to ODS/DWD)</th><th>Streaming Capability (Latency, E2E)</th><th>Maintainability &amp; Maturity</th><th>Openness &amp; Vendor Lock-in</th></tr></thead><tbody><tr><td><strong>Snowflake + Native Table</strong></td><td>💰💰💰 (Storage: $40+/TB/mo, Compute: $2/credit avg)</td><td>⭐⭐⭐⭐ (Up to billions of rows Join in &lt;10 min)</td><td>⭐⭐⭐ (Via Snowpipe only; Flink → Snowpipe Streaming)</td><td>⏱️ ~5 sec latency(micro-batching)</td><td>✅ Fully managed, minimal tuning</td><td>❌ Closed format, Snowflake only</td></tr><tr><td><strong>Snowflake + Iceberg</strong></td><td>💰💰💰 (Storage: ~$25/TB on S3, Compute: $2/credit avg)</td><td>⭐⭐⭐ (50%~500% slower than native table format)</td><td>⭐⭐⭐ (Flink → Iceberg write; Snowflake external read)</td><td>⏱️ ~2-10 min latency (depends on Flink)</td><td>⚠️ Metadata &amp; partition tuning needed</td><td>✅ Open format (Apache Iceberg)</td></tr><tr><td><strong>Databricks + Iceberg</strong></td><td>💰💰 (Storage: ~$25/TB on S3, Compute: $0.55/DBU avg)</td><td>⭐⭐⭐ (Optimized read, 10B+ rows in ~10 min)</td><td>⭐⭐⭐⭐ (Flink native write; Spark read/write; cross-engine)</td><td>⏱️ ~1-5 min latency (structured streaming)</td><td>⚠️ Requires catalog setup &amp; tuning</td><td>✅ Open format (cross-platform)</td></tr><tr><td><strong>Databricks + Delta</strong></td><td>💰💰 (Storage: ~$25/TB on S3, Compute: $0.55/DBU avg)</td><td>⭐⭐⭐⭐⭐ (Best-in-class Spark optimization: Z-order, caching)</td><td>⭐⭐⭐⭐ (Native Delta Sink in Flink; Spark streaming support)</td><td>⏱️ ~1-3 min latency (streaming or trigger)</td><td>✅ Mature, production ready</td><td>⚠️ Open spec, but Databricks-led</td></tr></tbody></table></div><h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;/assets/css/APlayer.min.css&quot;&gt;&lt;script src=&quot;/assets/js/APlayer.min.js&quot; cla</summary>
+      
+    
+    
+    
+    
+    <category term="datawarehouse" scheme="https://adooobe.github.io/tags/datawarehouse/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>flink-rs</title>
+    <link href="https://adooobe.github.io/2025/05/22/flink-rs/"/>
+    <id>https://adooobe.github.io/2025/05/22/flink-rs/</id>
+    <published>2025-05-22T13:40:00.000Z</published>
+    <updated>2025-05-22T13:40:00.983Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="/assets/js/Meting.min.js"></script>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;/assets/css/APlayer.min.css&quot;&gt;&lt;script src=&quot;/assets/js/APlayer.min.js&quot; cla</summary>
+      
+    
+    
+    
+    
+  </entry>
   
   <entry>
     <title>My Whimsical Musings on Data Warehouse Selection</title>
@@ -358,70 +420,6 @@
     
     
     <category term="cdc mysql binlog" scheme="https://adooobe.github.io/tags/cdc-mysql-binlog/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Snowflake CDC VS Hudi CDC</title>
-    <link href="https://adooobe.github.io/2023/10/30/snowflake-stream/"/>
-    <id>https://adooobe.github.io/2023/10/30/snowflake-stream/</id>
-    <published>2023-10-30T01:55:24.000Z</published>
-    <updated>2024-05-22T06:28:08.287Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="Batch-vs-Streaming"><a href="#Batch-vs-Streaming" class="headerlink" title="Batch vs. Streaming"></a>Batch vs. Streaming</h2><p>Batch and streaming are different ways to treat data transformation. We usually talk about <code>Flow-Batch integration</code> artitechture but I have not seen any applications which can do self-adaption batch or streaming operation in the same semantic and I totally agree the point of view proposed by <a href="https://dl.acm.org/doi/pdf/10.1145/3589776">this article</a>.</p><blockquote><p>batch systems process input datasets in their entirety to produce new output datasets in their entirety.</p><p>streaming systems process the changes to input datasets over time to incrementally evolve their corresponding outputs over time.</p></blockquote><p>In my opinion, streaming systems combine the data and time semantic but batch systems only concerns about data. It leads to a new physical concept: <code>changes</code>. In Snowflake, <code>Streams</code> are based on <code>changes</code> which capture the changes to a dataset over time.</p><p>As for ETL pipeline, streaming or batch is depedent on the compute engine. If we use Flink for Hudi CDC, the pipeline is streaming but micro-batch with Spark. Unluckily, Snowflake does not yet have mature streaming capabilities ( I’m not so familiar with the implementation of Dynamic Table)</p><h2 id="Implementation"><a href="#Implementation" class="headerlink" title="Implementation"></a>Implementation</h2><h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><ol><li><a href="https://dl.acm.org/doi/pdf/10.1145/3589776">https://dl.acm.org/doi/pdf/10.1145/3589776</a></li><li><a href="https://15445.courses.cs.cmu.edu/fall2021/notes/05-bufferpool.pdf">https://15445.courses.cs.cmu.edu/fall2021/notes/05-bufferpool.pdf</a></li></ol>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h2 id=&quot;Batch-vs-Streaming&quot;&gt;&lt;a href=&quot;#Batch-vs-Streaming&quot; class=&quot;headerlink&quot; title=&quot;Batch vs. Streaming&quot;&gt;&lt;/a&gt;Batch vs. Streaming&lt;/h2&gt;&lt;p&gt;Batc</summary>
-      
-    
-    
-    
-    
-    <category term="stream cdc snowflake" scheme="https://adooobe.github.io/tags/stream-cdc-snowflake/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>hudi-cdc</title>
-    <link href="https://adooobe.github.io/2023/10/23/hudi-cdc/"/>
-    <id>https://adooobe.github.io/2023/10/23/hudi-cdc/</id>
-    <published>2023-10-23T03:16:06.000Z</published>
-    <updated>2024-01-15T07:41:39.746Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="Two-choices"><a href="#Two-choices" class="headerlink" title="Two choices"></a>Two choices</h2><h3 id="Diff"><a href="#Diff" class="headerlink" title="Diff"></a>Diff</h3><ul><li>Based on Time-Travel</li><li>Without any redundant data</li><li>Low query performance</li><li>Improved by data split(file, bucket .etc)</li></ul><h3 id="CDF"><a href="#CDF" class="headerlink" title="CDF"></a>CDF</h3><ul><li>Need addtional metadata column and writing cost</li><li>Better query performance</li></ul><p>In CDF(DeltaLake, Hudi, Databend and Snowflake all chose CDF as CDC implementation), there are also some aspects that require our careful consideration as follows:</p><ul><li>when to persistence：we have a large number of different operators applied in the database system; we need to identify which ones require the CDC (Change Data Capture) hidden columns to be persisted.</li><li>Write: Regarding different types of write operations in various lake formats, the corresponding changes in file metadata should be clarified. The first point that can be optimized under the CDF scheme is to determine, based on different operations, whether there is a need to persist CDC data. This means that some operation’s change information is directly read from the CDC file, while for other operations, the modification information is extracted and converted from the ordinary data files. However, as each lake format has its own definition for different operations, a detailed analysis specific to the format is necessary. For instance, operations in DeltaLake like Insert Into/Insert Overwrite, Update, Delete, and Merge are what we normally understand. Meanwhile, Hudi introduces concepts like recordKey as a primary key and preCombineField for comparisons, meaning that even a simple Insert Into SQL syntax might actually correspond to an Update operation in practical logic.<ul><li>For the Insert Into operation, DeltaLake does not read any other existing files, but only adds new data files. As such, when executing the Insert Into operation under the CDF framework with DeltaLake, there is no need for additional data persistence; one only needs to load these batch files at query time and transform the data into the agreed output format. However, within Hudi, because of the logic that combines data or optimizes by writing data into existing small files, it is necessary to read and rewrite existing files; thus, persistence of CDC data is required.</li><li>For the drop partition operation, both DeltaLake (not supported by the community version, but supported by Alibaba Cloud’s EMR version) and Hudi directly mark all data files in that partition as deleted. There is no need to persist any information; during querying, these files are identified, loaded, and each record is marked as a delete operation type, along with other information such as timestamps.</li><li>For the update operation, the most fundamental operation must be to load the data files that meet the where condition, update the data that satisfies the where condition, and then write the updated data along with the unmodified data directly into a new file. In this case, an expansion of the CDF (Capability Data File) capability is required.</li></ul></li><li>Read:</li></ul><h2 id="Databend"><a href="#Databend" class="headerlink" title="Databend"></a>Databend</h2><h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><ol><li><a href="https://github.com/apache/hudi/blob/master/rfc/rfc-51/rfc-51.md#approvers">https://github.com/apache/hudi/blob/master/rfc/rfc-51/rfc-51.md#approvers</a></li><li><a href="https://github.com/apache/hudi/pull/5885/commits">https://github.com/apache/hudi/pull/5885/commits</a></li></ol>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h2 id=&quot;Two-choices&quot;&gt;&lt;a href=&quot;#Two-choices&quot; class=&quot;headerlink&quot; title=&quot;Two choices&quot;&gt;&lt;/a&gt;Two choices&lt;/h2&gt;&lt;h3 id=&quot;Diff&quot;&gt;&lt;a href=&quot;#Diff&quot; class=&quot;</summary>
-      
-    
-    
-    
-    
-  </entry>
-  
-  <entry>
-    <title>z-order</title>
-    <link href="https://adooobe.github.io/2023/10/19/z-order/"/>
-    <id>https://adooobe.github.io/2023/10/19/z-order/</id>
-    <published>2023-10-19T05:33:09.000Z</published>
-    <updated>2024-07-24T00:35:53.604Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="What-is-Z-order-amp-Why-Z-order"><a href="#What-is-Z-order-amp-Why-Z-order" class="headerlink" title="What is Z-order &amp; Why Z-order"></a>What is Z-order &amp; Why Z-order</h2><p>Z-order is a concept of sorting data. Specifically，to quote Wikipedia, <code>“Z-order maps multidimensional data to one dimension while preserving locality of the data points.”</code> In the field of big data, Columns in table are regarded as dimensions to some extension. In other words, Z-order brings us a better way to organize data.</p><p>Firstly, let’s think about two different ordered data, Z-order data and Linear-order data.</p><p><img src="/2023/10/19/z-order/z-order.png#pic_center" alt="z-order data"></p><p><img src="/2023/10/19/z-order/linear-order.png#pic_center" alt="linear-order data"></p><p>It is difficult for us to determine which one performs better immediately so there is a simple example to examine why z-order data may be the better one.</p><div class="table-container"><table><thead><tr><th style="text-align:center">x</th><th style="text-align:center">y</th><th style="text-align:center">z</th></tr></thead><tbody><tr><td style="text-align:center">0</td><td style="text-align:center">0</td><td style="text-align:center">1</td></tr><tr><td style="text-align:center">0</td><td style="text-align:center">3</td><td style="text-align:center">1</td></tr><tr><td style="text-align:center">1</td><td style="text-align:center">0</td><td style="text-align:center">1</td></tr><tr><td style="text-align:center">1</td><td style="text-align:center">2</td><td style="text-align:center">1</td></tr><tr><td style="text-align:center">2</td><td style="text-align:center">1</td><td style="text-align:center">1</td></tr><tr><td style="text-align:center">2</td><td style="text-align:center">3</td><td style="text-align:center">1</td></tr><tr><td style="text-align:center">3</td><td style="text-align:center">0</td><td style="text-align:center">1</td></tr><tr><td style="text-align:center">3</td><td style="text-align:center">3</td><td style="text-align:center">1</td></tr></tbody></table></div><p>data in z-order:</p><div class="table-container"><table><thead><tr><th style="text-align:center">x</th><th style="text-align:center">y</th><th style="text-align:center">z</th></tr></thead><tbody><tr><td style="text-align:center">0</td><td style="text-align:center">0</td><td style="text-align:center">1</td></tr><tr><td style="text-align:center">1</td><td style="text-align:center">0</td><td style="text-align:center">1</td></tr><tr><td style="text-align:center">3</td><td style="text-align:center">0</td><td style="text-align:center">1</td></tr><tr><td style="text-align:center">2</td><td style="text-align:center">1</td><td style="text-align:center">1</td></tr><tr><td style="text-align:center">1</td><td style="text-align:center">2</td><td style="text-align:center">1</td></tr><tr><td style="text-align:center">0</td><td style="text-align:center">3</td><td style="text-align:center">1</td></tr><tr><td style="text-align:center">2</td><td style="text-align:center">3</td><td style="text-align:center">1</td></tr><tr><td style="text-align:center">3</td><td style="text-align:center">3</td><td style="text-align:center">1</td></tr></tbody></table></div><p>Now, think about executing a query as follows:</p><ol><li><code>select sum(z) from test where x = 2</code></li><li><code>select sum(z) from test where y = 2</code></li></ol><p>How do we know the query behavior of this SQL? Let’s figure out it in clickhouse.</p><p>default minmax index:</p><div class="table-container"><table><thead><tr><th>granule</th><th>x_min</th><th>x_max</th><th>y_min</th><th>y_max</th></tr></thead><tbody><tr><td>0</td><td>0</td><td>0</td><td>0</td><td>3</td></tr><tr><td>1</td><td>1</td><td>1</td><td>0</td><td>2</td></tr><tr><td>2</td><td>2</td><td>2</td><td>1</td><td>3</td></tr><tr><td>3</td><td>3</td><td>3</td><td>0</td><td>3</td></tr></tbody></table></div><p>minmax index with z-order:</p><div class="table-container"><table><thead><tr><th>granule</th><th>x_min</th><th>x_max</th><th>y_min</th><th>y_max</th></tr></thead><tbody><tr><td>0</td><td>0</td><td>1</td><td>0</td><td>0</td></tr><tr><td>1</td><td>2</td><td>3</td><td>0</td><td>1</td></tr><tr><td>2</td><td>0</td><td>1</td><td>2</td><td>3</td></tr><tr><td>3</td><td>2</td><td>3</td><td>3</td><td>3</td></tr></tbody></table></div><p>For default minmax index, we filter only one granule when filtering <code>x=2</code> and  4 granules when filtering <code>y=2</code>. For z-order data, the results are<br>2 and 2. It seems that z-order data may be litter better than default one but what if we have more than 3 dimensions filter conditions? Therefore, arranging data according to z-order can help us filter out data does not need to be read, achieving better dataskipping.</p><h2 id="Z-order-in-OLTP-amp-OLAP"><a href="#Z-order-in-OLTP-amp-OLAP" class="headerlink" title="Z-order in OLTP &amp; OLAP"></a>Z-order in OLTP &amp; OLAP</h2><p>In conclusion, Z-order in OLAP can be more popular than OLTP. There are two reasons as follows.</p><p>One is due to the order of physical data that data can only be ordered as one rule in disk. If we put data into disk ordered by primary key, it can’t be ordered by another key. It means we can’t get satisfying performance when filtering some other column as same as filtering sprimary key columns. Another one is we can create serveral B-Tree index in OLTP to replace the capabilities of z-order but OLAP not (because index in memory is too expensive for OLAP).</p><h2 id="Extension-GeoHash-VS-Morton-Code"><a href="#Extension-GeoHash-VS-Morton-Code" class="headerlink" title="Extension: GeoHash VS Morton Code"></a>Extension: GeoHash VS Morton Code</h2><ol><li><a href="https://zhuanlan.zhihu.com/p/35940647">https://zhuanlan.zhihu.com/p/35940647</a></li><li><a href="https://zhuanlan.zhihu.com/p/468542418">https://zhuanlan.zhihu.com/p/468542418</a> (z-order code, but I don’t understand:( )</li></ol><h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><ol><li><a href="https://blog.cloudera.com/speeding-up-queries-with-z-order/">https://blog.cloudera.com/speeding-up-queries-with-z-order/</a></li><li><a href="https://izualzhy.cn/lakehouse-zorder">https://izualzhy.cn/lakehouse-zorder</a></li><li><a href="https://juejin.cn/post/7118344872947515428">https://juejin.cn/post/7118344872947515428</a></li><li><a href="https://zhuanlan.zhihu.com/p/491256487">https://zhuanlan.zhihu.com/p/491256487</a></li></ol>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h2 id=&quot;What-is-Z-order-amp-Why-Z-order&quot;&gt;&lt;a href=&quot;#What-is-Z-order-amp-Why-Z-order&quot; class=&quot;headerlink&quot; title=&quot;What is Z-order &amp;amp; Why Z-or</summary>
-      
-    
-    
-    
-    
-    <category term="big data, index" scheme="https://adooobe.github.io/tags/big-data-index/"/>
     
   </entry>
   

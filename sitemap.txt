@@ -1,3 +1,6 @@
+https://adooobe.github.io/2025/05/28/offline-warehouse/
+https://adooobe.github.io/2025/06/02/exile/
+https://adooobe.github.io/2025/05/22/flink-rs/
 https://adooobe.github.io/2025/04/16/dw-selection/
 https://adooobe.github.io/2025/03/31/flink-k8s-operator/
 https://adooobe.github.io/2024/08/12/shuffle-all-in-one/
