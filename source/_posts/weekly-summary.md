@@ -216,4 +216,4 @@ LOSE WGIGHT❕❕❕
 4. Raft - Log Replication
 5. MPP - Shuffle
 6. Arrow - Why Arrow
-7. 
+7.

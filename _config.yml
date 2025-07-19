@@ -3,7 +3,7 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: Finch's Blog
+title: Finchirp
 subtitle: ''
 description: ''
 keywords: Bigdata
@@ -113,3 +113,12 @@ archive_generator:
 topindex_generator:
   per_page: 10 #Posts displayed per page. (0 = disable pagination)
   order_by: -date #Posts order. (Order by date descending by default)
+
+aplayer:
+  meting: true
+
+# Mermaid diagrams
+mermaid:
+  enable: true
+  version: "10.6.1"
+  options:

@@ -5,8 +5,15 @@ tags: bigdata
 ---
 ## Columnar Format
 
-## Language Agnosticism
+The **Arrow columnar format** includes a language-agnostic in-memory data structure specification, metadata serialization, and a protocol for serialization and generic data transport.
+
+The columnar format has some key features:
+
+* Data adjacency for sequential access (scans)
+* O(1) (constant-time) random access
+* SIMD and vectorization-friendly
+* Relocatable without “pointer swizzling”, allowing for true zero-copy access in shared memory
 
 ## Vectorized Operations
 
-## Difference between Arrow and Parquet
+## Reference

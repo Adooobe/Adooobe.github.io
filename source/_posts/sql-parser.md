@@ -1,5 +1,5 @@
 ---
-title: Study Notes: TDOP  
+title: Study Notes of TDOP  
 date: 2024-04-09 13:50:47
 tags: sqlparser, TDOP
 top: 3
