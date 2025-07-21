@@ -2,6 +2,24 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://adooobe.github.io/2025/07/21/automq-entry/</loc>
+    
+    <lastmod>2025-07-21</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://adooobe.github.io/2025/01/14/automq-read/</loc>
+    
+    <lastmod>2025-07-21</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://adooobe.github.io/2024/12/05/cloud-native-flink/</loc>
     
     <lastmod>2025-07-21</lastmod>
@@ -39,15 +57,6 @@
   
   <url>
     <loc>https://adooobe.github.io/categories/index.html</loc>
-    
-    <lastmod>2025-07-21</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://adooobe.github.io/2025/01/14/automq-all-in-one/</loc>
     
     <lastmod>2025-07-21</lastmod>
     
@@ -263,14 +272,14 @@
 
   
   <url>
-    <loc>https://adooobe.github.io/tags/bigdata/</loc>
+    <loc>https://adooobe.github.io/tags/AutoMQ-Kafka-Message-Queue-Architecture/</loc>
     <lastmod>2025-07-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://adooobe.github.io/tags/AutoMQ-Kafka-Message-Queue-Architecture/</loc>
+    <loc>https://adooobe.github.io/tags/bigdata/</loc>
     <lastmod>2025-07-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -284,14 +293,14 @@
   </url>
   
   <url>
-    <loc>https://adooobe.github.io/tags/databend-query-execution/</loc>
+    <loc>https://adooobe.github.io/tags/Flink-cloud-native-Kubernetes-Yarn/</loc>
     <lastmod>2025-07-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://adooobe.github.io/tags/Flink-cloud-native-Kubernetes-Yarn/</loc>
+    <loc>https://adooobe.github.io/tags/databend-query-execution/</loc>
     <lastmod>2025-07-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -326,14 +335,14 @@
   </url>
   
   <url>
-    <loc>https://adooobe.github.io/tags/cdc-mysql-binlog/</loc>
+    <loc>https://adooobe.github.io/tags/Consensus-Raft-Kafka/</loc>
     <lastmod>2025-07-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://adooobe.github.io/tags/Consensus-Raft-Kafka/</loc>
+    <loc>https://adooobe.github.io/tags/cdc-mysql-binlog/</loc>
     <lastmod>2025-07-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -347,21 +356,7 @@
   </url>
   
   <url>
-    <loc>https://adooobe.github.io/tags/summary/</loc>
-    <lastmod>2025-07-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://adooobe.github.io/tags/stream-cdc-snowflake/</loc>
-    <lastmod>2025-07-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://adooobe.github.io/tags/sqlparser-TDOP/</loc>
     <lastmod>2025-07-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -374,14 +369,21 @@
     <priority>0.2</priority>
   </url>
   
-
-  
   <url>
-    <loc>https://adooobe.github.io/categories/Distributed-Systems/</loc>
+    <loc>https://adooobe.github.io/tags/summary/</loc>
     <lastmod>2025-07-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
+  
+  <url>
+    <loc>https://adooobe.github.io/tags/sqlparser-TDOP/</loc>
+    <lastmod>2025-07-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+
   
   <url>
     <loc>https://adooobe.github.io/categories/Data-Structures/</loc>
@@ -392,6 +394,13 @@
   
   <url>
     <loc>https://adooobe.github.io/categories/Big-Data/</loc>
+    <lastmod>2025-07-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://adooobe.github.io/categories/AutoMQ/</loc>
     <lastmod>2025-07-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
