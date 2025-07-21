@@ -2,6 +2,69 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://adooobe.github.io/2024/12/05/cloud-native-flink/</loc>
+    
+    <lastmod>2025-07-21</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://adooobe.github.io/2025/03/31/flink-k8s-operator/</loc>
+    
+    <lastmod>2025-07-21</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://adooobe.github.io/2023/10/02/lsm-tree/</loc>
+    
+    <lastmod>2025-07-21</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://adooobe.github.io/2023/10/02/bloom/</loc>
+    
+    <lastmod>2025-07-21</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://adooobe.github.io/categories/index.html</loc>
+    
+    <lastmod>2025-07-21</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://adooobe.github.io/2025/01/14/automq-all-in-one/</loc>
+    
+    <lastmod>2025-07-21</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://adooobe.github.io/2024/04/09/sql-parser/</loc>
+    
+    <lastmod>2025-07-19</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://adooobe.github.io/2025/05/28/offline-warehouse/</loc>
     
     <lastmod>2025-06-06</lastmod>
@@ -32,15 +95,6 @@
     <loc>https://adooobe.github.io/2025/04/16/dw-selection/</loc>
     
     <lastmod>2025-04-21</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://adooobe.github.io/2025/03/31/flink-k8s-operator/</loc>
-    
-    <lastmod>2025-04-16</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -92,15 +146,6 @@
   </url>
   
   <url>
-    <loc>https://adooobe.github.io/2024/12/05/cloud-native-flink/</loc>
-    
-    <lastmod>2024-12-23</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://adooobe.github.io/2024/12/13/iceberg-concepts/</loc>
     
     <lastmod>2024-12-13</lastmod>
@@ -128,15 +173,6 @@
   </url>
   
   <url>
-    <loc>https://adooobe.github.io/2023/10/02/bloom/</loc>
-    
-    <lastmod>2024-08-19</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://adooobe.github.io/2024/07/24/flink-snowflake-connector/</loc>
     
     <lastmod>2024-08-14</lastmod>
@@ -156,15 +192,6 @@
   
   <url>
     <loc>https://adooobe.github.io/2023/10/19/z-order/</loc>
-    
-    <lastmod>2024-07-24</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://adooobe.github.io/2023/10/02/lsm-tree/</loc>
     
     <lastmod>2024-07-24</lastmod>
     
@@ -209,15 +236,6 @@
   </url>
   
   <url>
-    <loc>https://adooobe.github.io/2024/04/09/sql-parser/</loc>
-    
-    <lastmod>2024-04-10</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://adooobe.github.io/2023/12/21/mysql-cdc/</loc>
     
     <lastmod>2024-04-08</lastmod>
@@ -229,7 +247,7 @@
   <url>
     <loc>https://adooobe.github.io/2023/10/23/hudi-cdc/</loc>
     
-    <lastmod>2024-01-15</lastmod>
+    <lastmod>2024-04-07</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -238,7 +256,7 @@
 
   <url>
     <loc>https://adooobe.github.io/</loc>
-    <lastmod>2025-06-10</lastmod>
+    <lastmod>2025-07-21</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -246,109 +264,137 @@
   
   <url>
     <loc>https://adooobe.github.io/tags/bigdata/</loc>
-    <lastmod>2025-06-10</lastmod>
+    <lastmod>2025-07-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://adooobe.github.io/tags/AutoMQ-Kafka-Message-Queue-Architecture/</loc>
+    <lastmod>2025-07-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://adooobe.github.io/tags/Bloom-Filter/</loc>
-    <lastmod>2025-06-10</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://adooobe.github.io/tags/LSM-Storage/</loc>
-    <lastmod>2025-06-10</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://adooobe.github.io/tags/big-data-index/</loc>
-    <lastmod>2025-06-10</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://adooobe.github.io/tags/stream-cdc-snowflake/</loc>
-    <lastmod>2025-06-10</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://adooobe.github.io/tags/cdc-mysql-binlog/</loc>
-    <lastmod>2025-06-10</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://adooobe.github.io/tags/sqlparser-TDOP/</loc>
-    <lastmod>2025-06-10</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://adooobe.github.io/tags/MergeSort/</loc>
-    <lastmod>2025-06-10</lastmod>
+    <lastmod>2025-07-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://adooobe.github.io/tags/databend-query-execution/</loc>
-    <lastmod>2025-06-10</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://adooobe.github.io/tags/Consensus-Raft-Kafka/</loc>
-    <lastmod>2025-06-10</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://adooobe.github.io/tags/summary/</loc>
-    <lastmod>2025-06-10</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://adooobe.github.io/tags/snowflake-flink-connector/</loc>
-    <lastmod>2025-06-10</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://adooobe.github.io/tags/nom/</loc>
-    <lastmod>2025-06-10</lastmod>
+    <lastmod>2025-07-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://adooobe.github.io/tags/Flink-cloud-native-Kubernetes-Yarn/</loc>
-    <lastmod>2025-06-10</lastmod>
+    <lastmod>2025-07-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://adooobe.github.io/tags/datawarehouse/</loc>
-    <lastmod>2025-06-10</lastmod>
+    <lastmod>2025-07-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://adooobe.github.io/tags/MergeSort/</loc>
+    <lastmod>2025-07-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://adooobe.github.io/tags/snowflake-flink-connector/</loc>
+    <lastmod>2025-07-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://adooobe.github.io/tags/LSM-Storage/</loc>
+    <lastmod>2025-07-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://adooobe.github.io/tags/cdc-mysql-binlog/</loc>
+    <lastmod>2025-07-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://adooobe.github.io/tags/Consensus-Raft-Kafka/</loc>
+    <lastmod>2025-07-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://adooobe.github.io/tags/nom/</loc>
+    <lastmod>2025-07-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://adooobe.github.io/tags/summary/</loc>
+    <lastmod>2025-07-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://adooobe.github.io/tags/stream-cdc-snowflake/</loc>
+    <lastmod>2025-07-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://adooobe.github.io/tags/sqlparser-TDOP/</loc>
+    <lastmod>2025-07-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://adooobe.github.io/tags/big-data-index/</loc>
+    <lastmod>2025-07-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
 
+  
+  <url>
+    <loc>https://adooobe.github.io/categories/Distributed-Systems/</loc>
+    <lastmod>2025-07-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://adooobe.github.io/categories/Data-Structures/</loc>
+    <lastmod>2025-07-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://adooobe.github.io/categories/Big-Data/</loc>
+    <lastmod>2025-07-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
   
 </urlset>
