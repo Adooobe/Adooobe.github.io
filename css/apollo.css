@@ -13,7 +13,7 @@ ul{margin:1rem 0}
 a,a:active{color:#2c3e50;text-decoration:none}
 a.nav-list-link.active,a.nav-list-link:hover,a.post-title-link:hover{border-bottom:2px solid #42b983}
 hr{border:0}
-code{margin:0 2px;padding:3px 5px;color:#e96900;border-radius:2px;white-space:inherit}
+code{margin:0 2px;padding:4px 8px;color:#d63384;background-color:#f8f9fa;border:1px solid #e9ecef;border-radius:4px;white-space:inherit;box-shadow:0 1px 3px rgba(0,0,0,0.1);font-weight:500}
 iframe,video{max-width:100%;margin:1rem auto;display:block}
 table{width:100%;margin:1em auto}
 table thead{background-color:#ddd}
@@ -410,7 +410,7 @@ header .nav-list-item a{font-size:14px;line-height:1.4}
 .post-content a{color:#42b983;word-break:break-all}
 .post-content blockquote{margin:2em 0;padding-left:20px;border-left:4px solid #42b983}
 .post-content img{display:block;max-width:100%;margin:1em auto}
-.post-content>table,.post-content>figure.highlight{box-shadow:0 1px 2px rgba(0,0,0,0.125)}
+.post-content>table,.post-content>figure.highlight{box-shadow:0 4px 16px rgba(0,0,0,0.15), 0 2px 8px rgba(0,0,0,0.1)}
 .post-content .tip{position:relative;margin:2em 0;padding:12px 24px 12px 30px;border-left:4px solid #f66;border-top-right-radius:2px;border-bottom-right-radius:2px;background-color:#f8f8f8}
 .post-content .tip br{display:none}
 .post-content .tip:before{position:absolute;top:14px;left:-12px;content:"!";width:20px;height:20px;border-radius:100%;color:#fff;font-size:14px;line-height:20px;font-weight:bold;text-align:center;background-color:#f66;font-family:'Dosis', 'Source Sans Pro', 'Helvetica Neue', Arial, sans-serif}
@@ -418,11 +418,11 @@ header .nav-list-item a{font-size:14px;line-height:1.4}
 #mask{position:fixed;overflow:scroll;width:100%;height:100%;padding:1em 0;background-color:rgba(0,0,0,0.5);z-index:10}
 #mask #mask-image{max-width:95%}
 
-code,pre{font-size:0.8em;background-color:#f8f8f8;font-family:'Roboto Mono', Monaco, courier, monospace}
-.highlight{position:relative;margin:1em 0;border-radius:2px;line-height:1.1em;background-color:#f8f8f8;overflow-x:auto}
+code,pre{font-size:0.8em;background-color:#f5f5f5;font-family:'Roboto Mono', Monaco, courier, monospace;border:1px solid #e8e8e8}
+.highlight{position:relative;margin:1.5em 0;border-radius:6px;line-height:1.1em;background-color:#f5f5f5;overflow-x:auto;border:1px solid #e8e8e8;box-shadow:0 6px 20px rgba(0,0,0,0.12), 0 2px 6px rgba(0,0,0,0.08);transform:translateZ(0)}
 .highlight table,.highlight tr,.highlight td{width:100%;border-collapse:collapse;padding:0;margin:0}
 .highlight .gutter{display:none}
-.highlight .code pre{padding:1.2em 1.4em;line-height:1.5em;margin:0}
+.highlight .code pre{padding:1.5em 1.8em;line-height:1.6em;margin:0;background-color:#fafafa;border-radius:5px}
 .highlight .code pre .line{width:auto;height:18px}
 .highlight.html .code:after,.highlight.js .code:after,.highlight.bash .code:after,.highlight.css .code:after,.highlight.scss .code:after,.highlight.diff .code:after,.highlight.java .code:after,.highlight.xml .code:after,.highlight.python .code:after,.highlight.json .code:after,.highlight.swift .code:after,.highlight.ruby .code:after,.highlight.perl .code:after,.highlight.php .code:after,.highlight.c .code:after,.highlight.cpp .code:after,.highlight.ts .code:after{position:absolute;top:0;right:0;color:#ccc;text-align:right;font-size:0.75em;padding:5px 10px 0;line-height:15px;height:15px;font-weight:600}
 .highlight.html .code:after{content:"HTML"}
@@ -652,3 +652,54 @@ footer .copyright a:hover{color:#888}
 @font-face{font-family:'sourcesanspro';src:url("../font/sourcesanspro.woff2") format("woff2"),url("../font/sourcesanspro.woff") format("woff");font-weight:normal;font-style:normal}
 
 .admonition { margin: 1.5625em 0; padding: .6rem; overflow: hidden; page-break-inside: avoid; border-left: .3rem solid #42b983; border-radius: .3rem; box-shadow: 0 0.1rem 0.4rem rgba(0,0,0,.05), 0 0 0.05rem rgba(0,0,0,.1); background-color: #fafafa; } p.admonition-title { position: relative; margin: -.6rem -.6rem .8em -.6rem !important; padding: .4rem .6rem .4rem 2.5rem; font-weight: 700; background-color:rgba(66, 185, 131, .1); } .admonition-title::before { position: absolute; top: .9rem; left: 1rem; width: 16px; height: 16px; background-color: #42b983; border-radius: 50%; content: ' '; } .info>.admonition-title, .todo>.admonition-title { background-color: rgba(0,184,212,.1); } .warning>.admonition-title, .attention>.admonition-title, .caution>.admonition-title { background-color: rgba(255,145,0,.1); } .failure>.admonition-title, .missing>.admonition-title, .fail>.admonition-title, .error>.admonition-title { background-color: rgba(255,82,82,.1); } .admonition.info, .admonition.todo { border-color: #00b8d4; } .admonition.warning, .admonition.attention, .admonition.caution { border-color: #ff9100; } .admonition.failure, .admonition.missing, .admonition.fail, .admonition.error { border-color: #ff5252; } .info>.admonition-title::before, .todo>.admonition-title::before { background-color: #00b8d4; border-radius: 50%; } .warning>.admonition-title::before, .attention>.admonition-title::before, .caution>.admonition-title::before { background-color: #ff9100; border-radius: 50%; } .failure>.admonition-title::before,.missing>.admonition-title::before,.fail>.admonition-title::before,.error>.admonition-title::before{ background-color: #ff5252;; border-radius: 50%; } .admonition>:last-child { margin-bottom: 0 !important; }
+
+/* 代码块景深增强效果 */
+.highlight:hover {
+    box-shadow: 0 8px 25px rgba(0,0,0,0.18), 0 4px 10px rgba(0,0,0,0.12);
+    transform: translateY(-2px);
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.highlight {
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+/* 内联代码hover效果 */
+code:not(.highlight code):hover {
+    background-color:#e7f3ff;
+    border-color:#b3d9ff;
+    transform: translateY(-1px);
+    box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+    transition: all 0.2s ease;
+}
+
+code:not(.highlight code) {
+    transition: all 0.2s ease;
+}
+
+/* 代码块语言标签增强 */
+.highlight .code:after {
+    background-color: rgba(255,255,255,0.9);
+    backdrop-filter: blur(10px);
+    border-radius: 0 5px 0 4px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+/* 代码块滚动条样式 */
+.highlight::-webkit-scrollbar {
+    height: 8px;
+}
+
+.highlight::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 4px;
+}
+
+.highlight::-webkit-scrollbar-thumb {
+    background: #c1c1c1;
+    border-radius: 4px;
+}
+
+.highlight::-webkit-scrollbar-thumb:hover {
+    background: #a8a8a8;
+}
