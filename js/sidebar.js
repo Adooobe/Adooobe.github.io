@@ -5,6 +5,47 @@ document.addEventListener('DOMContentLoaded', function() {
     const categorySelect = document.getElementById('categorySelect');
     const categoryHeaders = document.querySelectorAll('.category-header');
     
+    // 滚动条显示/隐藏逻辑
+    let scrollTimeout;
+    let isScrolling = false;
+    
+    if (sidebar) {
+        sidebar.addEventListener('scroll', function() {
+            // 使用节流来优化性能
+            if (!isScrolling) {
+                isScrolling = true;
+                sidebar.classList.add('scrolling');
+                
+                // 使用 requestAnimationFrame 来确保平滑动画
+                requestAnimationFrame(function() {
+                    isScrolling = false;
+                });
+            }
+            
+            // 清除之前的超时
+            clearTimeout(scrollTimeout);
+            
+            // 在滚动停止后1.2秒隐藏滚动条
+            scrollTimeout = setTimeout(function() {
+                sidebar.classList.remove('scrolling');
+            }, 1200);
+        });
+        
+        // 鼠标进入侧边栏时也显示滚动条
+        sidebar.addEventListener('mouseenter', function() {
+            clearTimeout(scrollTimeout);
+        });
+        
+        // 鼠标离开侧边栏时延迟隐藏滚动条
+        sidebar.addEventListener('mouseleave', function() {
+            if (!sidebar.classList.contains('scrolling')) {
+                scrollTimeout = setTimeout(function() {
+                    sidebar.classList.remove('scrolling');
+                }, 800);
+            }
+        });
+    }
+    
     // 移动端侧边栏切换
     if (toggleBtn) {
         toggleBtn.addEventListener('click', function() {

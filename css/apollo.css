@@ -37,19 +37,58 @@ table tbody td{padding:5px;vertical-align:text-top}
 
 .sidebar::-webkit-scrollbar {
     width: 6px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.sidebar:hover::-webkit-scrollbar {
+    opacity: 1;
 }
 
 .sidebar::-webkit-scrollbar-track {
-    background: #f8f9fa;
+    background: transparent;
 }
 
 .sidebar::-webkit-scrollbar-thumb {
-    background: #d0d0d0;
+    background: rgba(208, 208, 208, 0.7);
     border-radius: 3px;
+    transition: background 0.2s ease;
 }
 
 .sidebar::-webkit-scrollbar-thumb:hover {
-    background: #b0b0b0;
+    background: rgba(176, 176, 176, 0.9);
+}
+
+/* 滚动时显示滚动条的动画效果 */
+.sidebar.scrolling::-webkit-scrollbar {
+    opacity: 1;
+}
+
+.sidebar.scrolling::-webkit-scrollbar-thumb {
+    background: rgba(208, 208, 208, 0.8);
+}
+
+/* Firefox 滚动条样式 */
+.sidebar {
+    scrollbar-width: thin;
+    scrollbar-color: transparent transparent;
+    transition: scrollbar-color 0.3s ease;
+}
+
+.sidebar:hover,
+.sidebar.scrolling {
+    scrollbar-color: rgba(208, 208, 208, 0.7) transparent;
+}
+
+/* 移动端优化 - 在移动设备上总是显示滚动条 */
+@media (max-width: 768px) {
+    .sidebar::-webkit-scrollbar {
+        opacity: 1;
+    }
+    
+    .sidebar {
+        scrollbar-color: rgba(208, 208, 208, 0.5) transparent;
+    }
 }
 
 .sidebar .sidebar-content {
