@@ -1,6 +1,7 @@
 ---
 title: flink-k8s-operator
 date: 2025-03-31 15:06:11
+categories: Big Data
 tags:
 ---
 ## Background

@@ -1,7 +1,7 @@
 ---
-title: AutoMQ Message Reading Flow Sequence Diagram
+title: AutoMQ Message Reading Flow
 date: 2025-01-14 23:18:00
-tags: [AutoMQ, Kafka, Message Queue, Architecture]
+tags: AutoMQ, Kafka, Message Queue, Architecture
 categories: Distributed Systems
 ---
 

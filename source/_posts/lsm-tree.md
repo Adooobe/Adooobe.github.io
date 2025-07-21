@@ -1,6 +1,7 @@
 ---
 title: the principle and application of LSM Tree 
 date: 2023-10-02 19:24:02
+categories: Data Structures
 tags: LSM Storage
 top: 1
 ---

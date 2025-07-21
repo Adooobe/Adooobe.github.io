@@ -1,6 +1,7 @@
 ---
 title: Flink on K8s VS Flink on Yarn
 date: 2024-12-05 10:17:54
+categories: Big Data
 tags: Flink cloud-native Kubernetes Yarn
 top: 1
 ---
