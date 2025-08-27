@@ -27,7 +27,6 @@ https://adooobe.github.io/2023/10/08/apache-arrow/
 https://adooobe.github.io/2023/10/02/lsm-tree/
 https://adooobe.github.io/2023/10/02/bloom/
 https://adooobe.github.io/categories/index.html
-https://adooobe.github.io/2025/06/02/exile/
 https://adooobe.github.io/2024/12/31/2024-summary/
 https://adooobe.github.io/
 https://adooobe.github.io/tags/AutoMQ-Kafka-Message-Queue-Architecture/
